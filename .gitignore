@@ -1,0 +1,55 @@
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Dependencies
+/node_modules
+/jspm_packages
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+/build
+/coverage
+/.angular/cache
+/.sass-cache
+/connect.lock
+/libpeerconnection.log
+testem.log
+/typings
+__screenshots__
+
+# Firebase
+.firebase/
+*-debug-log
+*.log
+firebase-debug.log
+.runtimeconfig.json
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/mcp.json
+.history/*
+*.suo
+*.ntvsca*
+*.njsproj
+*.sln
+*.sw?
+
+# OS / System files
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+ehthumbs.db
