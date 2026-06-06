@@ -23,7 +23,7 @@ export class EventsComponent implements OnInit {
   weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   currentMonthDate = new Date();
   
-  selectedEvent: any = null;
+  selectedDay: CalendarDay | null = null;
 
   constructor(public calendarService: CalendarService) { }
 
@@ -37,7 +37,7 @@ export class EventsComponent implements OnInit {
       this.events = allEvents.filter(e => {
         const d = new Date(e.start?.dateTime || e.start?.date);
         return d >= now;
-      }).slice(0, 3);
+      }).slice(0, 5);
     });
   }
 
@@ -90,11 +90,13 @@ export class EventsComponent implements OnInit {
     this.populateCalendar();
   }
 
-  openEventModal(event: any) {
-    this.selectedEvent = event;
+  openDayModal(day: CalendarDay) {
+    if (day.events && day.events.length > 0) {
+      this.selectedDay = day;
+    }
   }
 
-  closeEventModal() {
-    this.selectedEvent = null;
+  closeDayModal() {
+    this.selectedDay = null;
   }
 }

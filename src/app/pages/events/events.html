@@ -25,13 +25,24 @@
       <div class="weekday-header" *ngFor="let day of weekdays">{{ day }}</div>
 
       <div class="calendar-day" *ngFor="let day of calendarDays" [class.outside-month]="!day.isCurrentMonth"
-        [class.has-events]="day.events.length > 0">
+        [class.has-events]="day.events.length > 0" (click)="openDayModal(day)">
         <span class="day-number">{{ day.date | date:'d' }}</span>
 
         <div class="day-events">
-          <div class="event-chip pulse-glow" *ngFor="let event of day.events" [title]="event.summary"
-            (click)="openEventModal(event)">
-            {{ event.start?.dateTime ? (event.start?.dateTime | date:'h:mm a') : 'All Day' }} - {{ event.summary }}
+          <!-- Desktop Text Chips -->
+          <div class="desktop-events">
+            <div class="event-chip pulse-glow" *ngFor="let event of day.events | slice:0:2" [title]="event.summary">
+              {{ event.start?.dateTime ? (event.start?.dateTime | date:'h:mm a') : 'All Day' }} - {{ event.summary }}
+            </div>
+            <div class="more-events-text" *ngIf="day.events.length > 2">
+              +{{ day.events.length - 2 }} more
+            </div>
+          </div>
+
+          <!-- Mobile Dots -->
+          <div class="mobile-event-dots" *ngIf="day.events.length > 0">
+            <span class="event-dot" *ngFor="let event of day.events | slice:0:3"></span>
+            <span class="more-dots-text" *ngIf="day.events.length > 2">+{{ day.events.length - 2 }}</span>
           </div>
         </div>
       </div>
@@ -81,21 +92,25 @@
   </section>
 </div>
 
-<!-- Event Modal (Moved outside of transformed container to fix centering) -->
-<div class="modal-overlay" *ngIf="selectedEvent" (click)="closeEventModal()">
-  <div class="modal-content glass-panel-dark" (click)="$event.stopPropagation()">
-    <button class="modal-close" (click)="closeEventModal()">&times;</button>
-    <h2 style="color: var(--accent-secondary); margin-bottom: 1rem;">{{ selectedEvent.summary }}</h2>
-    <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 0.5rem;">
-      {{ (selectedEvent.start?.dateTime || selectedEvent.start?.date) | date:'fullDate' }}
-    </p>
-    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;" *ngIf="selectedEvent.start?.dateTime">
-      {{ selectedEvent.start?.dateTime | date:'shortTime' }} - {{ selectedEvent.end?.dateTime | date:'shortTime' }}
-    </p>
-    <p style="color: var(--text-primary); line-height: 1.6;">{{ selectedEvent.description || 'No additional details
-      provided.' }}</p>
-    <div style="margin-top: 2rem; text-align: right;">
-      <a routerLink="/contact" class="btn-primary" (click)="closeEventModal()">RSVP to this Event</a>
+<!-- Day Events Modal -->
+<div class="modal-overlay" *ngIf="selectedDay" (click)="closeDayModal()">
+  <div class="modal-content glass-panel" (click)="$event.stopPropagation()">
+    <button class="modal-close" (click)="closeDayModal()">&times;</button>
+    <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Events for {{ selectedDay.date | date:'MMM d, yyyy' }}</h2>
+
+    <div style="margin-top: 1.5rem; max-height: 60vh; overflow-y: auto; padding-right: 10px;">
+      <div *ngFor="let event of selectedDay.events" class="day-modal-event"
+        style="padding: 1rem; background: var(--bg-secondary); border-radius: 12px; margin-bottom: 1rem; border: 1px solid var(--card-border);">
+        <h3 style="font-size: 1.4rem; color: var(--text-primary); margin-bottom: 0.5rem;">{{ event.summary }}</h3>
+        <p class="event-time" style="color: var(--accent-secondary); font-weight: 600; margin-bottom: 0.5rem;">
+          {{ event.start?.dateTime ? (event.start?.dateTime | date:'shortTime') + ' - ' + (event.end?.dateTime |
+          date:'shortTime') : 'All Day Event' }}
+        </p>
+        <p style="color: var(--text-secondary); line-height: 1.5;">{{ event.description || 'No additional details
+          provided.' }}</p>
+        <a *ngIf="event.htmlLink" [href]="event.htmlLink" target="_blank" class="btn-primary mt-4"
+          style="display: inline-block; padding: 0.5rem 1rem; font-size: 0.9rem;">View in Google Calendar</a>
+      </div>
     </div>
   </div>
 </div>

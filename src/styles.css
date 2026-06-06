@@ -62,13 +62,7 @@ body {
 
 /* --- Layout & Router Structure --- */
 .scrollable-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
+  position: relative;
   display: flex;
   flex-direction: column;
   z-index: 10;
