@@ -1,17 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
+  /* LIGHT THEME (Default) */
   --bg-primary: #ffffff;
   --bg-secondary: #f8fafc;
   --text-primary: #0f172a;
-  --text-secondary: #64748b;
+  --text-secondary: #475569;
   --accent-color: #2563eb;
   --accent-glow: rgba(37, 99, 235, 0.2);
-  --accent-secondary: #38bdf8;
-  --accent-secondary-glow: rgba(56, 189, 248, 0.2);
-  --card-bg: rgba(255, 255, 255, 0.7);
-  --card-border: rgba(255, 255, 255, 0.5);
+  --accent-secondary: #0ea5e9;
+  --accent-secondary-glow: rgba(14, 165, 233, 0.2);
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-border: rgba(0, 0, 0, 0.05);
   --shadow-color: rgba(15, 23, 42, 0.05);
+  
+  /* Navbar and Footer specifically */
+  --nav-bg: rgba(248, 250, 252, 0.95);
+  --footer-bg: #f1f5f9;
+}
+
+[data-theme="dark"] {
+  /* DARK THEME */
+  --bg-primary: #09090b;
+  --bg-secondary: #18181b;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --accent-color: #38bdf8;
+  --accent-glow: rgba(56, 189, 248, 0.2);
+  --accent-secondary: #818cf8;
+  --accent-secondary-glow: rgba(129, 140, 248, 0.2);
+  --card-bg: rgba(24, 24, 27, 0.8); /* Much darker/opaque so underlying elements don't show through too much */
+  --card-border: rgba(255, 255, 255, 0.15);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  
+  /* Navbar and Footer specifically */
+  --nav-bg: rgba(9, 9, 11, 0.95);
+  --footer-bg: #121214;
 }
 
 * {
@@ -35,3 +59,128 @@ body {
   background-color: var(--text-primary);
   color: white;
 }
+
+/* --- Layout & Router Structure --- */
+.scrollable-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.main-router-content {
+  flex: 1 0 auto;
+  width: 100%;
+  padding-top: 80px; /* Offset for fixed navbar */
+  min-height: calc(100vh - 80px);
+}
+
+/* --- Glassmorphism & Modern Utilities --- */
+.glass-panel {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 8px 32px 0 var(--shadow-color);
+  color: var(--text-primary);
+}
+
+.glass-panel-dark {
+  background: var(--bg-secondary);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 16px 0 var(--shadow-color);
+  color: var(--text-primary);
+}
+
+.pulse-glow {
+  box-shadow: 0 0 15px var(--accent-secondary-glow);
+  animation: pulse-border 2s infinite;
+}
+
+@keyframes pulse-border {
+  0% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(56, 189, 248, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* --- Global Responsiveness --- */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px; /* Shrink base font size slightly on mobile */
+  }
+  
+  h1 {
+    font-size: 2.5rem !important;
+  }
+  
+  h2 {
+    font-size: 1.8rem !important;
+  }
+  
+  h3 {
+    font-size: 1.3rem !important;
+  }
+  
+  .glass-panel, .glass-panel-dark {
+    padding: 1.5rem !important; /* Override large hardcoded paddings */
+    border-radius: 16px !important;
+  }
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
+  color: white;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--accent-secondary);
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: var(--accent-secondary);
+  color: white;
+}
+
+/* Utilities */
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mb-4 { margin-bottom: 1.5rem; }

@@ -1,0 +1,46 @@
+.page-container {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 2rem;
+  color: white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.not-found-content {
+  padding: 5rem 2rem;
+  border-radius: 24px;
+}
+
+.error-code {
+  font-size: 8rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.not-found-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.not-found-content p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-primary {
+  text-decoration: none;
+  display: inline-block;
+}

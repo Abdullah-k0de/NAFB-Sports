@@ -1,0 +1,91 @@
+<div class="page-container fade-in-up">
+  <!-- 1. Hero Section -->
+  <section class="hero-section glass-panel">
+    <div class="hero-content">
+      <div class="rotating-badge-container">
+        <svg class="rotating-badge" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="none" stroke="var(--accent-secondary)" stroke-width="2"
+            stroke-dasharray="10 5" />
+          <path d="M50 10 L90 90 L10 90 Z" fill="none" stroke="var(--accent-color)" stroke-width="2" />
+        </svg>
+      </div>
+
+      <h1 class="hero-title">Redefining <span class="text-gradient">Health</span> Through Sport.</h1>
+      <p class="hero-subtitle">Inclusive fitness with no competition and no pressure—just personal health, confidence,
+        and joy for all.</p>
+
+      <div class="champions-quick-look">
+        <div class="champ-letter"><strong>C</strong>onfident</div>
+        <div class="champ-letter"><strong>H</strong>ealthy</div>
+        <div class="champ-letter"><strong>A</strong>ctive</div>
+        <div class="champ-letter"><strong>M</strong>otivated</div>
+        <div class="champ-letter"><strong>P</strong>eople</div>
+        <div class="champ-letter"><strong>I</strong>ntegrity</div>
+        <div class="champ-letter"><strong>O</strong>ptimism</div>
+        <div class="champ-letter"><strong>N</strong>urturing</div>
+        <div class="champ-letter"><strong>S</strong>upportive</div>
+      </div>
+
+      <div class="cta-group">
+        <a routerLink="/contact" class="btn-primary pulse-glow">Donate Now</a>
+        <a routerLink="/contact" class="btn-outline">Join as a Partner Club</a>
+      </div>
+    </div>
+    <div class="hero-image-wrapper">
+      <img src="assets/hero_image_1780404515420.png" alt="Dynamic Athletes Training" class="hero-image" />
+      <div class="image-overlay"></div>
+    </div>
+  </section>
+
+  <!-- 2. Mission Block -->
+  <section class="mission-block glass-panel" style="padding: 3rem; border-radius: 24px; text-align: center;">
+    <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--accent-secondary);">Our Mission</h2>
+    <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-primary); max-width: 800px; margin: 0 auto 2rem;">
+      To build lifelong C.H.A.M.P.I.O.N.S. of health and confidence. We achieve this by integrating sports fundamentals
+      with positive coaching and discipline to foster healthier and more active lifestyles for all, regardless of
+      ability or background.
+    </p>
+
+    <div class="impact-stats" style="display: flex; justify-content: center; gap: 2rem;">
+      <div class="stat-item glass-panel-dark" style="padding: 1.5rem; border-radius: 16px; flex: none; width: 250px;">
+        <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem;">No Pressure</h4>
+        <p>100% Inclusive Environment</p>
+      </div>
+      <div class="stat-item glass-panel-dark" style="padding: 1.5rem; border-radius: 16px; flex: none; width: 250px;">
+        <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Holistic</h4>
+        <p>Mind & Body Health Focus</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Who We Serve & The NAFB Experience -->
+  <section class="expanded-content">
+    <div class="content-block glass-panel">
+      <h2>Who We Serve</h2>
+      <p>NAFB Sports is dedicated to communities, families, and individuals of all backgrounds and ability levels.
+        Whether you are stepping onto a field for the first time or looking to reclaim your health in a low-stress
+        environment, our doors are open. We partner with local youth athletic clubs, schools, and community centers to
+        deliver specialized, fully inclusive fitness routines that bring people together.</p>
+    </div>
+
+    <div class="content-block glass-panel">
+      <h2>The NAFB Experience</h2>
+      <p>Our programs are built on the foundational principles of sports without the elite pressure. A typical NAFB
+        experience involves dynamic group movement, positive reinforcement, and a focus on personal milestones rather
+        than scoreboard victories. We prioritize cardiovascular health, mental wellbeing, and the pure joy of being
+        active with a supportive community.</p>
+    </div>
+  </section>
+
+  <!-- 4. Latest News/Events Ticker -->
+  <section class="news-ticker glass-panel-dark">
+    <div class="ticker-content">
+      <span class="badge">Next Event</span>
+      <p *ngIf="calendarService.loading">Loading upcoming event...</p>
+      <p *ngIf="!calendarService.loading && nextEvent">{{ nextEvent.summary }} &mdash; {{ (nextEvent.start?.dateTime ||
+        nextEvent.start?.date) | date:'MMM d' }}</p>
+      <p *ngIf="!calendarService.loading && !nextEvent">No upcoming events right now.</p>
+      <a routerLink="/events" class="ticker-link">View Full Calendar &rarr;</a>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,101 @@
+<div class="page-container fade-in-up">
+  <div class="header-section text-center">
+    <h1 class="page-title">Community <span class="text-gradient">Calendar</span></h1>
+    <p class="page-subtitle">Keep the community active and engaged. Join us at our next gathering.</p>
+  </div>
+
+  <!-- Interactive Calendar Section -->
+  <section class="calendar-section glass-panel">
+    <div class="calendar-header">
+      <button class="btn-outline btn-sm" (click)="prevMonth()">&larr; Prev</button>
+      <h2 class="month-info">{{ currentMonthDate | date:'MMMM yyyy' }}</h2>
+      <button class="btn-outline btn-sm" (click)="nextMonth()">Next &rarr;</button>
+    </div>
+
+    <div *ngIf="calendarService.loading" class="loading-state">
+      <div class="spinner pulse-glow"></div>
+      <p>Syncing with Google Calendar...</p>
+    </div>
+
+    <div *ngIf="calendarService.error" class="error-state">
+      <p>Failed to load events. Please check back later.</p>
+    </div>
+
+    <div class="calendar-grid" *ngIf="!calendarService.loading && !calendarService.error">
+      <div class="weekday-header" *ngFor="let day of weekdays">{{ day }}</div>
+
+      <div class="calendar-day" *ngFor="let day of calendarDays" [class.outside-month]="!day.isCurrentMonth"
+        [class.has-events]="day.events.length > 0">
+        <span class="day-number">{{ day.date | date:'d' }}</span>
+
+        <div class="day-events">
+          <div class="event-chip pulse-glow" *ngFor="let event of day.events" [title]="event.summary"
+            (click)="openEventModal(event)">
+            {{ event.start?.dateTime ? (event.start?.dateTime | date:'h:mm a') : 'All Day' }} - {{ event.summary }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Highlights Section -->
+  <section class="events-section glass-panel-dark">
+    <h2>Upcoming Highlights</h2>
+
+    <div *ngIf="!calendarService.loading && !calendarService.error && events.length === 0" class="empty-state">
+      <p>No upcoming events scheduled right now. Stay tuned!</p>
+    </div>
+
+    <div class="events-list" *ngIf="!calendarService.loading && !calendarService.error && events.length > 0">
+      <div class="event-card glass-panel" *ngFor="let event of events">
+        <div class="event-date">
+          <span class="month">{{ (event.start?.dateTime || event.start?.date) | date:'MMM' }}</span>
+          <span class="day">{{ (event.start?.dateTime || event.start?.date) | date:'dd' }}</span>
+        </div>
+        <div class="event-details">
+          <h3>{{ event.summary }}</h3>
+          <p class="event-time" *ngIf="event.start?.dateTime">
+            {{ event.start?.dateTime | date:'shortTime' }} - {{ event.end?.dateTime | date:'shortTime' }}
+          </p>
+          <p class="event-desc">{{ event.description || 'Join us for this amazing event. Bring your friends and family!'
+            }}</p>
+        </div>
+        <div class="event-actions">
+          <a routerLink="/contact" class="btn-primary pulse-glow">Register / RSVP</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="photo-recap glass-panel">
+    <h2>Photo Recap</h2>
+    <p class="recap-subtitle">A look back at our recent community gatherings.</p>
+    <div class="recap-grid">
+      <div class="recap-item">
+        <img src="assets/inclusive_fitness_2_1780404549366.png" alt="Past event photo" />
+      </div>
+      <div class="recap-item">
+        <img src="assets/inclusive_fitness_1_1780404534072.png" alt="Past event photo" />
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Event Modal (Moved outside of transformed container to fix centering) -->
+<div class="modal-overlay" *ngIf="selectedEvent" (click)="closeEventModal()">
+  <div class="modal-content glass-panel-dark" (click)="$event.stopPropagation()">
+    <button class="modal-close" (click)="closeEventModal()">&times;</button>
+    <h2 style="color: var(--accent-secondary); margin-bottom: 1rem;">{{ selectedEvent.summary }}</h2>
+    <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 0.5rem;">
+      {{ (selectedEvent.start?.dateTime || selectedEvent.start?.date) | date:'fullDate' }}
+    </p>
+    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;" *ngIf="selectedEvent.start?.dateTime">
+      {{ selectedEvent.start?.dateTime | date:'shortTime' }} - {{ selectedEvent.end?.dateTime | date:'shortTime' }}
+    </p>
+    <p style="color: var(--text-primary); line-height: 1.6;">{{ selectedEvent.description || 'No additional details
+      provided.' }}</p>
+    <div style="margin-top: 2rem; text-align: right;">
+      <a routerLink="/contact" class="btn-primary" (click)="closeEventModal()">RSVP to this Event</a>
+    </div>
+  </div>
+</div>

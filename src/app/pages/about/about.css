@@ -1,0 +1,130 @@
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  color: var(--text-primary);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.page-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.page-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.mission-vision {
+  padding: 3rem;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.mission-vision h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.mission-vision p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+}
+
+.highlight-text {
+  color: var(--accent-secondary) !important;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1.5rem;
+}
+
+.value-card {
+  padding: 2rem;
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+.value-card h3 {
+  font-size: 1.5rem;
+  color: var(--accent-secondary);
+  margin-bottom: 1rem;
+}
+
+.value-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.story-team-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.story-content, .team-content {
+  padding: 3rem;
+  border-radius: 20px;
+}
+
+.story-content h2, .team-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.story-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+}
+
+.team-profile {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.avatar-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
+  border: 2px solid var(--text-primary);
+}
+
+.team-profile h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.team-profile p {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 992px) {
+  .story-team-section {
+    grid-template-columns: 1fr;
+  }
+}

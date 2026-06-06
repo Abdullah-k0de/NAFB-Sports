@@ -1,0 +1,51 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <a routerLink="/" class="nav-brand">
+      <img src="assets/NAFB-Sports-logo-without-bg.png" alt="NAFB Sports Logo" class="nav-logo" />
+      <span class="brand-text">NAFB <span class="text-gradient">SPORTS</span></span>
+    </a>
+    
+    <div class="nav-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Home</a>
+      <a routerLink="/about" routerLinkActive="active" class="nav-link">About</a>
+      <a routerLink="/sportxercise" routerLinkActive="active" class="nav-link">Sportxercise</a>
+      <a routerLink="/events" routerLinkActive="active" class="nav-link">Events</a>
+      <a routerLink="/contact" routerLinkActive="active" class="nav-link">Contact</a>
+      <a routerLink="/donate" routerLinkActive="active" class="nav-link">Donate</a>
+      <button class="theme-toggle" (click)="themeService.toggleTheme()" aria-label="Toggle Theme" style="margin-left: 1rem;">
+        <svg *ngIf="themeService.getCurrentTheme() === 'light'" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        <svg *ngIf="themeService.getCurrentTheme() === 'dark'" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      </button>
+    </div>
+    
+    <div class="nav-actions">
+      <button class="btn-primary pulse-glow desktop-only" routerLink="/donate">Donate Now</button>
+      <button class="hamburger-btn" (click)="toggleMenu()" aria-label="Toggle Menu">
+        <svg *ngIf="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <svg *ngIf="isMenuOpen" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu glass-panel" [class.open]="isMenuOpen">
+    <div class="mobile-nav-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link" (click)="toggleMenu()">Home</a>
+      <a routerLink="/about" routerLinkActive="active" class="nav-link" (click)="toggleMenu()">About</a>
+      <a routerLink="/sportxercise" routerLinkActive="active" class="nav-link" (click)="toggleMenu()">Sportxercise</a>
+      <a routerLink="/events" routerLinkActive="active" class="nav-link" (click)="toggleMenu()">Events</a>
+      <a routerLink="/contact" routerLinkActive="active" class="nav-link" (click)="toggleMenu()">Contact</a>
+      <a routerLink="/donate" routerLinkActive="active" class="nav-link" (click)="toggleMenu()">Donate</a>
+      
+      <div (click)="themeService.toggleTheme()" style="display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; margin-top: 0.5rem; border-top: 1px solid var(--card-border); cursor: pointer;">
+        <span style="color: var(--text-primary); font-weight: 500;">Switch Theme</span>
+        <button class="theme-toggle" aria-label="Toggle Theme" style="pointer-events: none;">
+          <svg *ngIf="themeService.getCurrentTheme() === 'light'" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg *ngIf="themeService.getCurrentTheme() === 'dark'" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+      </div>
+
+      <button class="btn-primary pulse-glow mt-4" style="width: 100%;" (click)="toggleMenu()" routerLink="/donate">Donate Now</button>
+    </div>
+  </div>
+</nav>

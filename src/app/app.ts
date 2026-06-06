@@ -1,5 +1,9 @@
 import { Component, HostListener, signal, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { RouterModule, Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import { NavbarComponent } from './components/navbar/navbar';
+import { FooterComponent } from './components/footer/footer';
 
 export interface FloatingIcon {
   id: number;
@@ -18,7 +22,8 @@ export interface FloatingIcon {
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  standalone: true,
+  imports: [RouterModule, NavbarComponent, FooterComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -32,8 +37,20 @@ export class App implements OnInit {
   // Modern vibrant sports colors
   colors = ['#38bdf8', '#818cf8', '#a78bfa', '#f472b6', '#fb923c', '#fbbf24', '#34d399', '#2dd4bf', '#ef4444', '#10b981'];
 
-  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+  constructor(@Inject(PLATFORM_ID) platformId: Object, private router: Router) {
     this.isBrowser = isPlatformBrowser(platformId);
+
+    // Scroll to top of the custom container on route change
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      if (this.isBrowser) {
+        const scrollable = document.querySelector('.scrollable-content');
+        if (scrollable) {
+          scrollable.scrollTo({ top: 0, behavior: 'instant' as any });
+        }
+      }
+    });
   }
 
   ngOnInit() {
