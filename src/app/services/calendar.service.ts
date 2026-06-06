@@ -36,13 +36,15 @@ export class CalendarService {
     this.http.get<any>(url).subscribe({
       next: (response) => {
         this.eventsCache = response.items || [];
-        this.eventsSubject.next(this.eventsCache!);
         this.loading = false;
+        this.eventsSubject.next(this.eventsCache!);
       },
       error: (err) => {
         console.error('Failed to fetch calendar events', err);
         this.error = true;
         this.loading = false;
+        // Emit empty array on error so UI can update
+        this.eventsSubject.next([]);
       }
     });
   }
