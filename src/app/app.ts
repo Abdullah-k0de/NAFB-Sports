@@ -45,10 +45,7 @@ export class App implements OnInit {
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
       if (this.isBrowser) {
-        const scrollable = document.querySelector('.scrollable-content');
-        if (scrollable) {
-          scrollable.scrollTo({ top: 0, behavior: 'instant' as any });
-        }
+        window.scrollTo({ top: 0, behavior: 'instant' as any });
       }
     });
   }
@@ -114,7 +111,7 @@ export class App implements OnInit {
 
   @HostListener('window:mousemove', ['$event'])
   onMouseMove(event: MouseEvent) {
-    if (!this.isBrowser) return;
+    if (!this.isBrowser || window.innerWidth < 768) return;
 
     const mouseX = event.clientX;
     const mouseY = event.clientY;
@@ -153,5 +150,56 @@ export class App implements OnInit {
         }
       });
     });
+  }
+
+  @HostListener('window:touchstart', ['$event'])
+  onTouchStart(event: TouchEvent) {
+    if (!this.isBrowser || window.innerWidth >= 768) return;
+
+    // Only respond to the first touch point to keep it ultra lightweight
+    const touch = event.touches[0];
+    if (!touch) return;
+
+    const mouseX = touch.clientX;
+    const mouseY = touch.clientY;
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+
+    this.icons.update(icons => {
+      return icons.map(icon => {
+        const iconPxX = (icon.baseX / 100) * windowWidth;
+        const iconPxY = (icon.baseY / 100) * windowHeight;
+
+        const dx = iconPxX - mouseX;
+        const dy = iconPxY - mouseY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        const repelRadius = 200; // slightly smaller radius for touch
+
+        if (dist < repelRadius && dist > 0) {
+          const force = Math.pow((repelRadius - dist) / repelRadius, 1.5);
+          const pushFactor = 120 * force;
+
+          const pushX = (dx / dist) * pushFactor;
+          const pushY = (dy / dist) * pushFactor;
+
+          const newVw = icon.baseX + (pushX / windowWidth) * 100;
+          const newVh = icon.baseY + (pushY / windowHeight) * 100;
+
+          return { ...icon, x: newVw, y: newVh };
+        }
+        
+        // Don't auto-return to base immediately on touch, let it stay repelled
+        return icon;
+      });
+    });
+    
+    // Automatically reset them after 2 seconds
+    setTimeout(() => {
+      if (!this.isBrowser) return;
+      this.icons.update(icons => {
+        return icons.map(icon => ({ ...icon, x: icon.baseX, y: icon.baseY }));
+      });
+    }, 2000);
   }
 }

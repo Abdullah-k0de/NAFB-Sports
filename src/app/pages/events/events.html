@@ -41,7 +41,7 @@
 
           <!-- Mobile Dots -->
           <div class="mobile-event-dots" *ngIf="day.events.length > 0">
-            <span class="event-dot" *ngFor="let event of day.events | slice:0:3"></span>
+            <span class="event-dot" *ngFor="let event of day.events | slice:0:2"></span>
             <span class="more-dots-text" *ngIf="day.events.length > 2">+{{ day.events.length - 2 }}</span>
           </div>
         </div>

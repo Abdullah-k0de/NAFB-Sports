@@ -269,9 +269,10 @@
 .mobile-event-dots {
   display: none;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+  flex-wrap: nowrap;
   gap: 3px;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .event-dot {
@@ -305,8 +306,8 @@
     text-overflow: ellipsis; 
     white-space: nowrap; 
   }
-  .calendar-day { padding: 2px; }
-  .day-number { font-size: 0.7rem; margin-bottom: 2px; }
+  .calendar-day { padding: 4px; }
+  .day-number { font-size: 0.75rem; margin-bottom: 0; line-height: 1; }
   
   .desktop-events { display: none; }
   .mobile-event-dots { display: flex; }
