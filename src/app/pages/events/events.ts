@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { CalendarService } from '../../services/calendar.service';
 
@@ -25,7 +25,7 @@ export class EventsComponent implements OnInit {
   
   selectedDay: CalendarDay | null = null;
 
-  constructor(public calendarService: CalendarService) { }
+  constructor(public calendarService: CalendarService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.calendarService.fetchEvents();
@@ -38,6 +38,8 @@ export class EventsComponent implements OnInit {
         const d = new Date(e.start?.dateTime || e.start?.date);
         return d >= now;
       }).slice(0, 5);
+      
+      this.cdr.detectChanges();
     });
   }
 
