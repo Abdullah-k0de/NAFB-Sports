@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
   selector: 'app-coming-soon',
   standalone: true,
   imports: [RouterModule],
-  templateUrl: './coming-soon.html'
+  templateUrl: './coming-soon.html',
+  styleUrl: './coming-soon.css'
 })
 export class ComingSoonComponent {}

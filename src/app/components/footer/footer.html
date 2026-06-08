@@ -1,61 +1,98 @@
 <footer class="footer">
-  <div class="footer-container">
-    <div class="footer-brand">
-      <img src="assets/NAFB-Sports-logo-without-bg.png" alt="NAFB Sports" class="footer-logo" />
-      <p class="footer-tagline">Building lifelong C.H.A.M.P.I.O.N.S. of health and confidence through inclusive sports
-        fundamentals.</p>
-    </div>
+  <!-- Top accent line -->
+  <div class="footer__accent-bar"></div>
 
-    <div class="footer-links">
-      <h4 style="color: var(--text-primary);">Quick Links</h4>
-      <div class="footer-links-group">
-        <a routerLink="/">Home</a>
-        <a routerLink="/about">About Us</a>
-        <a routerLink="/sportxercise">Sportxercise</a>
-        <a routerLink="/events">Events</a>
-        <a routerLink="/contact">Contact</a>
-        <a routerLink="/donate">Donate</a>
+  <div class="footer__main container">
+
+    <!-- Brand Column -->
+    <div class="footer__brand-col">
+      <a routerLink="/" class="footer__brand-link">
+        <img src="assets/NAFB-Sports-logo-without-bg.png" alt="NAFB Sports Logo" class="footer__logo" />
+      </a>
+      <div class="footer__org-info">
+        <p class="footer__org-name">NAFB Sports</p>
+        <p class="footer__org-type">National Association of Fitness Based Sports</p>
       </div>
-    </div>
-
-    <div class="footer-contact">
-      <h4 style="color: var(--text-primary);">Contact Us</h4>
-      <p>Email: <a href="mailto:nafbsportsorg@gmail.com"
-          style="color: var(--accent-secondary); text-decoration: none;">nafbsportsorg@gmail.com</a></p>
-
-      <div class="social-links mt-4" style="display: flex; gap: 1rem;">
-        <a href="#" aria-label="Instagram" style="color: var(--text-secondary); transition: color 0.3s;"
-          onmouseover="this.style.color='var(--accent-secondary)'"
-          onmouseout="this.style.color='var(--text-secondary)'">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+      <p class="footer__mission">
+        Building lifelong C.H.A.M.P.I.O.N.S. of health and confidence through inclusive, pressure-free sports
+        fundamentals — for all ages and abilities.
+      </p>
+      <div class="footer__socials">
+        <a href="#" aria-label="Instagram" class="footer__social">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
           </svg>
         </a>
-        <a href="#" aria-label="X (Twitter)" style="color: var(--text-secondary); transition: color 0.3s;"
-          onmouseover="this.style.color='var(--accent-secondary)'"
-          onmouseout="this.style.color='var(--text-secondary)'">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
-            <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+        <a href="#" aria-label="X (Twitter)" class="footer__social">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4l11.733 16h4.267l-11.733-16z" />
+            <path d="M4 20l6.768-6.768m2.46-2.46l6.772-6.772" />
           </svg>
         </a>
-        <a href="#" aria-label="Facebook" style="color: var(--text-secondary); transition: color 0.3s;"
-          onmouseover="this.style.color='var(--accent-secondary)'"
-          onmouseout="this.style.color='var(--text-secondary)'">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+        <a href="#" aria-label="Facebook" class="footer__social">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
           </svg>
         </a>
       </div>
     </div>
+
+    <!-- Quick Links -->
+    <div class="footer__col">
+      <h4 class="footer__col-title">Navigate</h4>
+      <ul class="footer__links">
+        <li><a routerLink="/" class="footer__link">Home</a></li>
+        <li><a routerLink="/about" class="footer__link">About Us</a></li>
+        <li><a routerLink="/sportxercise" class="footer__link">Sportxercise</a></li>
+        <li><a routerLink="/events" class="footer__link">Events</a></li>
+        <li><a routerLink="/contact" class="footer__link">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Programs -->
+    <div class="footer__col">
+      <h4 class="footer__col-title">Programs</h4>
+      <ul class="footer__links">
+        <li><a routerLink="/sportxercise" class="footer__link">Sportxercise Method</a></li>
+        <li><a routerLink="/sportxercise" class="footer__link">Youth Programs</a></li>
+        <li><a routerLink="/sportxercise" class="footer__link">Partner Clubs</a></li>
+        <li><a routerLink="/events" class="footer__link">Community Events</a></li>
+        <li><a routerLink="/donate" class="footer__link">Support Our Mission</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact & Donate -->
+    <div class="footer__col footer__col--cta">
+      <h4 class="footer__col-title">Get In Touch</h4>
+      <a href="mailto:nafbsportsorg@gmail.com" class="footer__email">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+          <polyline points="22,6 12,13 2,6" />
+        </svg>
+        nafbsportsorg&#64;gmail.com
+      </a>
+      <div class="footer__donate-box">
+        <p class="footer__donate-text">Help us build lifelong champions of health.</p>
+        <a routerLink="/donate" class="btn btn-gold btn-sm" style="width:100%;justify-content:center;">
+          Donate to NAFB Sports
+        </a>
+        <p class="footer__tax">NAFB Sports is a registered nonprofit organization.</p>
+      </div>
+    </div>
+
   </div>
 
-  <div class="footer-bottom">
-    <p>&copy; {{ currentYear }} NAFB Sports. A Nonprofit Organization. All rights reserved.</p>
+  <!-- Bottom Bar -->
+  <div class="footer__bottom">
+    <div class="container footer__bottom-inner">
+      <p class="footer__copy">&copy; {{ currentYear }} NAFB Sports — All Rights Reserved.</p>
+      <p class="footer__legal">A Nonprofit Organization committed to inclusive fitness for all.</p>
+    </div>
   </div>
 </footer>

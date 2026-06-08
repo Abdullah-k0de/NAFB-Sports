@@ -11,11 +11,11 @@ export class ThemeService {
   }
 
   private initTheme() {
-    const savedTheme = localStorage.getItem('app-theme') as 'light' | 'dark';
-    if (savedTheme) {
-      this.currentTheme = savedTheme;
+    const saved = localStorage.getItem('nafb-theme') as 'light' | 'dark' | null;
+    if (saved === 'dark' || saved === 'light') {
+      this.currentTheme = saved;
     } else {
-      // Default to light as requested
+      // Default: LIGHT mode
       this.currentTheme = 'light';
     }
     this.applyTheme();
@@ -23,7 +23,7 @@ export class ThemeService {
 
   toggleTheme() {
     this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
-    localStorage.setItem('app-theme', this.currentTheme);
+    localStorage.setItem('nafb-theme', this.currentTheme);
     this.applyTheme();
   }
 
@@ -37,5 +37,9 @@ export class ThemeService {
 
   getCurrentTheme() {
     return this.currentTheme;
+  }
+
+  isDark() {
+    return this.currentTheme === 'dark';
   }
 }

@@ -1,0 +1,118 @@
+/* ================================================================
+   COMING SOON PAGE — Professional Business Redesign
+   ================================================================ */
+
+.coming-soon {
+  min-height: calc(100vh - var(--nav-h));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 4rem;
+  background: var(--bg-alt);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background accent for empty states */
+.coming-soon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(15, 45, 82, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+[data-theme="dark"] .coming-soon::before {
+  background: radial-gradient(circle at center, rgba(15, 45, 82, 0.2) 0%, transparent 60%);
+}
+
+.coming-soon__card {
+  padding: 4rem 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  border-top: 4px solid var(--gold);
+  box-shadow: var(--shadow-lg);
+}
+
+.coming-soon__icon {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--r-full);
+  background: var(--bg-surface);
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border);
+}
+
+[data-theme="dark"] .coming-soon__icon {
+  color: var(--gold-light);
+}
+
+.coming-soon__title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 0.5rem;
+}
+
+.coming-soon__desc {
+  font-size: 1.1rem;
+  color: var(--txt-sec);
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+}
+
+.coming-soon__socials {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.coming-soon__social {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-sm);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--txt-sec);
+  transition: all var(--t-fast) ease;
+}
+
+.coming-soon__social:hover {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+  transform: translateY(-2px);
+}
+
+.coming-soon__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .coming-soon__card {
+    padding: 3rem 1.5rem;
+  }
+
+  .coming-soon__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .coming-soon__actions .btn {
+    width: 100%;
+  }
+}

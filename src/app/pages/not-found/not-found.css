@@ -1,46 +1,83 @@
-.page-container {
-  max-width: 800px;
-  margin: 4rem auto;
-  padding: 2rem;
-  color: white;
-}
+/* ================================================================
+   NOT FOUND PAGE — Professional Business Redesign
+   ================================================================ */
 
-.text-center {
-  text-align: center;
-}
-
-.not-found-content {
-  padding: 5rem 2rem;
-  border-radius: 24px;
-}
-
-.error-code {
-  font-size: 8rem;
-  font-weight: 900;
-  line-height: 1;
-  margin-bottom: 1rem;
-  background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.not-found-content h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.not-found-content p {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  margin-bottom: 3rem;
-}
-
-.action-buttons {
+.not-found {
+  min-height: calc(100vh - var(--nav-h));
   display: flex;
+  align-items: center;
   justify-content: center;
+  padding-block: 4rem;
+  background: var(--bg-alt);
+  position: relative;
+  overflow: hidden;
 }
 
-.btn-primary {
-  text-decoration: none;
-  display: inline-block;
+/* Subtle background accent */
+.not-found::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(15, 45, 82, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+[data-theme="dark"] .not-found::before {
+  background: radial-gradient(circle at center, rgba(15, 45, 82, 0.2) 0%, transparent 60%);
+}
+
+.not-found__card {
+  padding: 4rem 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  border-top: 4px solid var(--gold);
+  box-shadow: var(--shadow-lg);
+}
+
+.not-found__error-code {
+  font-size: clamp(5rem, 12vw, 8rem);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.04em;
+}
+
+.not-found__title {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  margin-bottom: 0.5rem;
+}
+
+.not-found__desc {
+  font-size: 1.1rem;
+  color: var(--txt-sec);
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 460px;
+}
+
+.not-found__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .not-found__card {
+    padding: 3rem 1.5rem;
+  }
+
+  .not-found__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .not-found__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }

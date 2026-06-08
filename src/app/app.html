@@ -1,77 +1,10 @@
-<main class="app-container">
-  <div class="background-elements">
-    <div class="shape shape-1"></div>
-    <div class="shape shape-2"></div>
-    <div class="shape shape-3"></div>
-    <div class="noise-overlay"></div>
-    
-    <!-- Interactive Floating Sports Icons -->
-    @for (icon of icons(); track icon.id) {
-      <div class="floating-icon"
-           [style.left.vw]="icon.x"
-           [style.top.vh]="icon.y"
-           [style.transform]="'rotate(' + icon.rotation + 'deg) scale(' + icon.scale + ')'"
-           [style.opacity]="icon.opacity"
-           [style.color]="icon.color"
-           [style.animation-duration.s]="icon.animDuration"
-           [style.animation-delay.s]="icon.animDelay">
-        @switch (icon.type) {
-          @case ('soccer') {
-            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4">
-              <circle cx="50" cy="50" r="46" />
-              <path d="M50 30 L65 40 L60 55 L40 55 L35 40 Z" fill="currentColor"/>
-              <line x1="50" y1="30" x2="50" y2="4" stroke="currentColor" />
-              <line x1="65" y1="40" x2="90" y2="35" stroke="currentColor" />
-              <line x1="60" y1="55" x2="80" y2="78" stroke="currentColor" />
-              <line x1="40" y1="55" x2="20" y2="78" stroke="currentColor" />
-              <line x1="35" y1="40" x2="10" y2="35" stroke="currentColor" />
-            </svg>
-          }
-          @case ('basketball') {
-            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4">
-              <circle cx="50" cy="50" r="46" />
-              <line x1="50" y1="4" x2="50" y2="96" />
-              <line x1="4" y1="50" x2="96" y2="50" />
-              <path d="M18 18 Q 50 30 82 18" />
-              <path d="M18 82 Q 50 70 82 82" />
-            </svg>
-          }
-          @case ('tennis') {
-            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4">
-              <circle cx="50" cy="50" r="46" />
-              <path d="M18 18 Q 50 50 18 82" />
-              <path d="M82 18 Q 50 50 82 82" />
-            </svg>
-          }
-          @case ('football') {
-            <svg viewBox="0 0 100 60" fill="none" stroke="currentColor" stroke-width="4">
-              <path d="M5 30 C5 10 95 10 95 30 C95 50 5 50 5 30 Z" />
-              <line x1="30" y1="30" x2="70" y2="30" />
-              <line x1="40" y1="20" x2="40" y2="40" />
-              <line x1="50" y1="20" x2="50" y2="40" />
-              <line x1="60" y1="20" x2="60" y2="40" />
-            </svg>
-          }
-          @case ('trophy') {
-            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4">
-              <path d="M30 20 L70 20 L65 55 C65 65 35 65 35 55 Z" />
-              <path d="M45 60 L45 75 L30 75 L30 85 L70 85 L70 75 L55 75 L55 60" />
-              <path d="M30 25 C15 25 15 45 32 45" />
-              <path d="M70 25 C85 25 85 45 68 45" />
-            </svg>
-          }
-          @case ('whistle') {
-            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4">
-              <path d="M20 50 A 25 25 0 1 0 70 50 A 25 25 0 1 0 20 50 Z" />
-              <path d="M70 40 L95 40 L95 60 L70 60" />
-              <circle cx="45" cy="50" r="8" fill="currentColor" />
-            </svg>
-          }
-        }
-      </div>
-    }
+<main class="app-shell">
+  <!-- Clean premium background — no icons, no distracting patterns -->
+  <div class="app-bg" aria-hidden="true">
+    <div class="app-bg__orb app-bg__orb--1"></div>
+    <div class="app-bg__orb app-bg__orb--2"></div>
   </div>
-  
+
   <div class="scrollable-content">
     <app-navbar></app-navbar>
     <div class="main-router-content">

@@ -1,116 +1,186 @@
-<div class="page-container fade-in-up">
-  <div class="header-section text-center">
-    <h1 class="page-title">Community <span class="text-gradient">Calendar</span></h1>
-    <p class="page-subtitle">Keep the community active and engaged. Join us at our next gathering.</p>
-  </div>
+<div class="events">
 
-  <!-- Interactive Calendar Section -->
-  <section class="calendar-section glass-panel">
-    <div class="calendar-header">
-      <button class="btn-outline btn-sm" (click)="prevMonth()">&larr; Prev</button>
-      <h2 class="month-info">{{ currentMonthDate | date:'MMMM yyyy' }}</h2>
-      <button class="btn-outline btn-sm" (click)="nextMonth()">Next &rarr;</button>
-    </div>
-
-    <div *ngIf="calendarService.loading" class="loading-state">
-      <div class="spinner pulse-glow"></div>
-      <p>Syncing with Google Calendar...</p>
-    </div>
-
-    <div *ngIf="calendarService.error" class="error-state">
-      <p>Failed to load events. Please check back later.</p>
-    </div>
-
-    <div class="calendar-grid" *ngIf="!calendarService.loading && !calendarService.error">
-      <div class="weekday-header" *ngFor="let day of weekdays">{{ day }}</div>
-
-      <div class="calendar-day" *ngFor="let day of calendarDays" [class.outside-month]="!day.isCurrentMonth"
-        [class.has-events]="day.events.length > 0" (click)="openDayModal(day)">
-        <span class="day-number">{{ day.date | date:'d' }}</span>
-
-        <div class="day-events">
-          <!-- Desktop Text Chips -->
-          <div class="desktop-events">
-            <div class="event-chip pulse-glow" *ngFor="let event of day.events | slice:0:2" [title]="event.summary">
-              {{ event.start?.dateTime ? (event.start?.dateTime | date:'h:mm a') : 'All Day' }} - {{ event.summary }}
-            </div>
-            <div class="more-events-text" *ngIf="day.events.length > 2">
-              +{{ day.events.length - 2 }} more
-            </div>
-          </div>
-
-          <!-- Mobile Dots -->
-          <div class="mobile-event-dots" *ngIf="day.events.length > 0">
-            <span class="event-dot" *ngFor="let event of day.events | slice:0:2"></span>
-            <span class="more-dots-text" *ngIf="day.events.length > 2">+{{ day.events.length - 2 }}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Upcoming Highlights Section -->
-  <section class="events-section glass-panel-dark">
-    <h2>Upcoming Highlights</h2>
-
-    <div *ngIf="!calendarService.loading && !calendarService.error && events.length === 0" class="empty-state">
-      <p>No upcoming events scheduled right now. Stay tuned!</p>
-    </div>
-
-    <div class="events-list" *ngIf="!calendarService.loading && !calendarService.error && events.length > 0">
-      <div class="event-card glass-panel" *ngFor="let event of events">
-        <div class="event-date">
-          <span class="month">{{ (event.start?.dateTime || event.start?.date) | date:'MMM' }}</span>
-          <span class="day">{{ (event.start?.dateTime || event.start?.date) | date:'dd' }}</span>
-        </div>
-        <div class="event-details">
-          <h3>{{ event.summary }}</h3>
-          <p class="event-time" *ngIf="event.start?.dateTime">
-            {{ event.start?.dateTime | date:'shortTime' }} - {{ event.end?.dateTime | date:'shortTime' }}
-          </p>
-          <p class="event-desc">{{ event.description || 'Join us for this amazing event. Bring your friends and family!'
-            }}</p>
-        </div>
-        <div class="event-actions">
-          <a routerLink="/contact" class="btn-primary pulse-glow">Register / RSVP</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="photo-recap glass-panel">
-    <h2>Photo Recap</h2>
-    <p class="recap-subtitle">A look back at our recent community gatherings.</p>
-    <div class="recap-grid">
-      <div class="recap-item">
-        <img src="assets/inclusive_fitness_2_1780404549366.png" alt="Past event photo" />
-      </div>
-      <div class="recap-item">
-        <img src="assets/inclusive_fitness_1_1780404534072.png" alt="Past event photo" />
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- Day Events Modal -->
-<div class="modal-overlay" *ngIf="selectedDay" (click)="closeDayModal()">
-  <div class="modal-content glass-panel" (click)="$event.stopPropagation()">
-    <button class="modal-close" (click)="closeDayModal()">&times;</button>
-    <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Events for {{ selectedDay.date | date:'MMM d, yyyy' }}</h2>
-
-    <div style="margin-top: 1.5rem; max-height: 60vh; overflow-y: auto; padding-right: 10px;">
-      <div *ngFor="let event of selectedDay.events" class="day-modal-event"
-        style="padding: 1rem; background: var(--bg-secondary); border-radius: 12px; margin-bottom: 1rem; border: 1px solid var(--card-border);">
-        <h3 style="font-size: 1.4rem; color: var(--text-primary); margin-bottom: 0.5rem;">{{ event.summary }}</h3>
-        <p class="event-time" style="color: var(--accent-secondary); font-weight: 600; margin-bottom: 0.5rem;">
-          {{ event.start?.dateTime ? (event.start?.dateTime | date:'shortTime') + ' - ' + (event.end?.dateTime |
-          date:'shortTime') : 'All Day Event' }}
+  <!-- ════════════════════════════════════════════════════════
+       PAGE HERO (PARALLAX)
+       ════════════════════════════════════════════════════════ -->
+  <section class="page-hero events-hero section parallax-section parallax-section--dark" style="background-image: url('assets/inclusive_fitness_1_1780404534072.png');">
+    <div class="container page-hero__inner">
+      <div class="page-hero__content reveal">
+        <h1 class="display page-hero__title">
+          Upcoming <span class="text-gradient">Events</span>
+        </h1>
+        <p class="page-hero__sub">
+          Join us at our next inclusive session, workshop, or community gathering.
+          Find an event near you and take the first step towards <mark class="highlight">pressure-free fitness</mark>.
         </p>
-        <p style="color: var(--text-secondary); line-height: 1.5;">{{ event.description || 'No additional details
-          provided.' }}</p>
-        <a *ngIf="event.htmlLink" [href]="event.htmlLink" target="_blank" class="btn-primary mt-4"
-          style="display: inline-block; padding: 0.5rem 1rem; font-size: 0.9rem;">View in Google Calendar</a>
+
+        <!-- Event Ticker -->
+        <div class="event-ticker card reveal glow-animation" style="margin-top: 3rem; background: var(--bg-card); color: var(--txt); max-width: 480px; padding: 2rem;">
+          <div *ngIf="calendarService.loading">
+             Loading next event...
+          </div>
+          <ng-container *ngIf="!calendarService.loading && upcomingEvents.length > 0">
+             <div class="event-ticker__header">
+               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+               <span style="font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--txt-sec);">Next Event</span>
+             </div>
+             <h3 class="event-ticker__title" style="margin-top: 0.75rem; color: var(--navy); font-size: 1.4rem;">{{ upcomingEvents[0].summary }}</h3>
+             <div class="event-ticker__date" style="font-weight: 600;">{{ (upcomingEvents[0].start?.dateTime || upcomingEvents[0].start?.date) | date:'EEEE, MMMM d, yyyy' }}</div>
+             <div class="event-ticker__time" *ngIf="upcomingEvents[0].start?.dateTime">{{ upcomingEvents[0].start.dateTime | date:'shortTime' }}</div>
+          </ng-container>
+          <div *ngIf="!calendarService.loading && upcomingEvents.length === 0" style="color: var(--txt-sec);">
+             No upcoming events scheduled.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       CALENDAR & EVENT LIST
+       ════════════════════════════════════════════════════════ -->
+  <section class="calendar-section section section--alt">
+    <div class="container">
+      
+      <!-- Loading Banner -->
+      <div class="card flex-center" *ngIf="calendarService.loading" style="padding: 1rem; margin-bottom: 2rem; border-color: var(--gold); background: var(--gold-pale);">
+        <div class="spinner" style="width: 20px; height: 20px; border-width: 2px;"></div>
+        <p style="margin-left: 1rem; color: var(--navy); font-weight: 600; margin-bottom: 0;">Syncing with Google Calendar...</p>
+      </div>
+
+      <div class="calendar-layout">
+        
+        <!-- Interactive Grid Column -->
+        <div class="calendar-layout__grid reveal-left">
+          <div class="cal-card card">
+            
+            <div class="cal-header">
+              <button class="cal-nav-btn" (click)="prevMonth()" aria-label="Previous month">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <h2 class="cal-month display">
+                {{ currentMonthDate | date:'MMMM yyyy' }}
+              </h2>
+              <button class="cal-nav-btn" (click)="nextMonth()" aria-label="Next month">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+
+            <div class="cal-days-header">
+              <div class="cal-dow" *ngFor="let day of ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']">{{ day }}</div>
+            </div>
+
+            <div class="cal-grid">
+              <div class="cal-day" 
+                   *ngFor="let day of calendarDays"
+                   [class.cal-day--other-month]="!day.isCurrentMonth"
+                   [class.cal-day--today]="day.isToday"
+                   [class.cal-day--has-events]="day.events && day.events.length > 0"
+                   (click)="openDayModal(day)">
+                
+                <span class="cal-date-num">{{ day.date.getDate() }}</span>
+                
+                <div class="cal-indicators" *ngIf="day.events && day.events.length > 0">
+                  <span class="cal-dot" *ngFor="let e of day.events | slice:0:3"></span>
+                  <span class="cal-plus" *ngIf="day.events.length > 3">+</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Upcoming Events List Column -->
+        <div class="calendar-layout__list reveal-right">
+          <h2 class="section-title" style="font-size: 2rem; margin-bottom: 2rem;">Upcoming <span class="text-gradient">Dates</span></h2>
+
+          <div class="event-list" *ngIf="upcomingEvents.length > 0">
+            <div class="event-list-item card" *ngFor="let evt of upcomingEvents | slice:0:5">
+              <div class="event-list-item__date-col">
+                <span class="event-list-item__month">{{ (evt.start?.dateTime || evt.start?.date) | date:'MMM' }}</span>
+                <span class="event-list-item__day">{{ (evt.start?.dateTime || evt.start?.date) | date:'dd' }}</span>
+              </div>
+              <div class="event-list-item__content">
+                <h4 class="event-list-item__title">{{ evt.summary }}</h4>
+                <div class="event-list-item__meta" *ngIf="evt.start?.dateTime">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  {{ evt.start.dateTime | date:'shortTime' }}
+                </div>
+                <div class="event-list-item__meta" *ngIf="evt.location">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  {{ evt.location }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card text-center text-sec" *ngIf="upcomingEvents.length === 0" style="padding: 3rem;">
+            No upcoming events are scheduled for this month.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       PHOTO RECAP
+       ════════════════════════════════════════════════════════ -->
+  <section class="recap section">
+    <div class="container">
+      <div class="section-header section-header--center">
+        <h2 class="section-title reveal reveal-delay-1">Community <span class="text-gradient">Highlights</span></h2>
+        <div class="rule rule--center reveal reveal-delay-2"></div>
+      </div>
+
+      <div class="recap-grid">
+        <div class="img-frame recap-img reveal">
+          <img src="assets/nafb_sportxercise_gallery1_1780402974382.png" alt="Community Event" class="img-cover"/>
+        </div>
+        <div class="img-frame recap-img reveal reveal-delay-1" style="transform: translateY(2rem);">
+          <img src="assets/inclusive_fitness_2_1780404549366.png" alt="Group Workout" class="img-cover"/>
+        </div>
+        <div class="img-frame recap-img reveal reveal-delay-2">
+          <img src="assets/nafb_sportxercise_gallery2_1780402992728.png" alt="Inclusive Sports" class="img-cover"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       EVENT MODAL
+       ════════════════════════════════════════════════════════ -->
+  <div class="modal-overlay" *ngIf="selectedDay" (click)="closeDayModal()">
+    <div class="modal-content card" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3 class="modal-title display">{{ selectedDay.date | date:'EEEE, MMMM d' }}</h3>
+        <button class="modal-close" (click)="closeDayModal()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="modal-event" *ngFor="let evt of selectedDay.events">
+          <h4 class="modal-event-title">{{ evt.summary }}</h4>
+          
+          <div class="modal-event-details">
+            <div class="modal-meta" *ngIf="evt.start?.dateTime">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>{{ evt.start.dateTime | date:'shortTime' }} - {{ evt.end?.dateTime | date:'shortTime' }}</span>
+            </div>
+            
+            <div class="modal-meta" *ngIf="evt.location">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>{{ evt.location }}</span>
+            </div>
+          </div>
+          
+          <p class="modal-desc" *ngIf="evt.description">{{ evt.description }}</p>
+          <a *ngIf="evt.htmlLink" [href]="evt.htmlLink" target="_blank" class="btn btn-outline btn-sm" style="margin-top: 1rem;">View on Google Calendar</a>
+        </div>
       </div>
     </div>
   </div>
+
 </div>

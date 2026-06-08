@@ -1,97 +1,214 @@
-<div class="page-container fade-in-up">
-  <div class="header-section text-center">
-    <h1 class="page-title">The <span class="text-gradient">Sportxercise</span> Method</h1>
-    <p class="page-subtitle">Inclusive fitness with no competition and no pressure—just personal health and joy.</p>
-  </div>
+<div class="sportxercise">
 
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 2rem;">
-    <section class="methodology-section glass-panel" style="padding: 2.5rem; border-radius: 24px;">
-      <div class="methodology-content">
-        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">The Methodology</h2>
-        <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-primary);">By translating core sports
-          fundamentals—like the agility of tennis, the coordination of basketball, or the endurance of soccer—into
-          inclusive, pressure-free fitness routines, we allow everyone to experience the joy of movement. This isn't
-          about scoring points; it's about building lifelong health.</p>
-        <ul class="benefits-list mt-4">
-          <li><span class="icon">✨</span> <strong>No Competition:</strong> Move at your own pace without comparison.
-          </li>
-          <li><span class="icon">🧘</span> <strong>No Pressure:</strong> A supportive environment focused on holistic
-            well-being.</li>
-          <li><span class="icon">❤️</span> <strong>Personal Health:</strong> Tailored adaptations to meet your unique
-            physical needs.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="why-section glass-panel" style="padding: 2.5rem; border-radius: 24px;">
-      <div class="methodology-content">
-        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">The "Why"</h2>
-        <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-primary);">We believe that fitness should be
-          accessible, enjoyable, and free from the pressures of elite competition. Traditional sports can often alienate
-          individuals who don't fit a specific mold or who don't thrive in highly competitive environments. Our "why" is
-          rooted in ensuring that absolutely no one is left on the sidelines when it comes to experiencing the physical,
-          mental, and social benefits of athletic movement.</p>
-        <img src="assets/nafb_sportxercise_gallery1_1780402974382.png" alt="Sportxercise session"
-          style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px; margin-top: 2rem; box-shadow: 0 10px 20px var(--shadow-color);" />
-      </div>
-    </section>
-  </div>
-
-  <section class="how-it-works glass-panel-dark text-center mt-4" style="padding: 4rem 2rem; border-radius: 24px;">
-    <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">How It Works</h2>
-    <div class="steps-container">
-      <div class="step-card">
-        <div class="step-number pulse-glow">1</div>
-        <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--accent-secondary);">Join or Partner</h3>
-        <p style="color: var(--text-secondary); line-height: 1.6;">Register as an individual or sign up your club to
-          integrate our Sportxercise methodology.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-number pulse-glow">2</div>
-        <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--accent-secondary);">Learn the Fundamentals</h3>
-        <p style="color: var(--text-secondary); line-height: 1.6;">Access our inclusive training guides and coaching
-          resources to adapt sports movements.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-number pulse-glow">3</div>
-        <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--accent-secondary);">Move Together</h3>
-        <p style="color: var(--text-secondary); line-height: 1.6;">Participate in our pressure-free sessions and start
-          building lifelong confidence.</p>
+  <!-- ════════════════════════════════════════════════════════
+       PAGE HERO (PARALLAX)
+       ════════════════════════════════════════════════════════ -->
+  <section class="page-hero section parallax-section parallax-section--dark" style="background-image: url('assets/nafb_sportxercise_gallery1_1780402974382.png');">
+    <div class="container page-hero__inner">
+      <div class="page-hero__content reveal">
+        <h1 class="display page-hero__title">
+          The <span class="text-gradient">Sportxercise</span> Method
+        </h1>
+        <p class="page-hero__sub">
+          Where <mark class="highlight">sports fundamentals</mark> meet everyday wellness. No scoreboard. No pressure. 
+          Just movement that <mark class="highlight">builds confidence</mark>.
+        </p>
+        <div class="hero__actions" style="margin-top: 2rem;">
+          <a routerLink="/contact" class="btn btn-primary btn-lg">Join a Session</a>
+          <a routerLink="/events" class="btn btn-outline btn-lg" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.4); color: #fff;">View Schedule</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Expanded Content Side-by-Side -->
-  <section class="mt-4 mb-4"
-    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 2rem;">
-    <div class="what-to-expect-section glass-panel" style="padding: 2.5rem; border-radius: 24px;">
-      <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">What to Expect in a Session
-      </h2>
-      <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">A typical Sportxercise session is
-        incredibly engaging and completely adaptable. You won't find any whistles or stopwatches here. Instead, you'll
-        find a supportive group environment led by positive coaches. We start with a gentle, dynamic warm-up, transition
-        into sport-specific fundamental drills (like dribbling a basketball or passing a soccer ball at a comfortable
-        pace), and end with a cool-down and group reflection.</p>
-    </div>
+  <!-- ════════════════════════════════════════════════════════
+       METHODOLOGY + THE WHY (Split Section)
+       ════════════════════════════════════════════════════════ -->
+  <section class="methodology section section--alt">
+    <div class="container">
+      <div class="method-grid">
 
-    <div class="benefits-section glass-panel" style="padding: 2.5rem; border-radius: 24px;">
-      <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Benefits Beyond the Field</h2>
-      <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;">The positive effects of Sportxercise
-        ripple into everyday life. Our participants report improved sleep, better concentration, and significantly lower
-        stress levels. More importantly, the sense of belonging and community forged during these sessions creates
-        lasting friendships and a powerful support network.</p>
+        <!-- Methodology Card -->
+        <div class="method-card card card-elevated reveal">
+          <div class="method-card__header">
+            <div class="method-card__icon method-card__icon--gold">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+          </div>
+          <h2 class="section-title" style="font-size:2rem; margin-top:1rem;">Sports <span class="text-gradient">Mechanics</span></h2>
+          <p class="method-card__text">
+            We extract the core movements from traditional sports — the lateral agility of tennis, the hand-eye coordination of basketball, the footwork of soccer — and translate them into a <mark class="highlight">low-impact fitness routine</mark>.
+          </p>
+          <ul class="method-card__list" style="margin-bottom: 2rem;">
+            <li class="method-card__list-item">
+              <div class="method-card__check">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <strong>No Competition</strong> — Move at your own pace without comparison to others.
+              </div>
+            </li>
+            <li class="method-card__list-item">
+              <div class="method-card__check">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <strong>No Pressure</strong> — A supportive environment focused on holistic well-being.
+              </div>
+            </li>
+            <li class="method-card__list-item">
+              <div class="method-card__check">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div>
+                <strong>Personal Health</strong> — Tailored adaptations to meet your unique physical needs.
+              </div>
+            </li>
+          </ul>
+          <div class="img-frame method-card__frame" style="margin-top:auto;">
+            <img src="assets/inclusive_fitness_1_1780404534072.png" alt="Sports Mechanics" class="img-cover" />
+          </div>
+        </div>
+
+        <!-- The Why Card -->
+        <div class="method-card card card-elevated reveal reveal-delay-2">
+          <div class="method-card__header">
+            <div class="method-card__icon method-card__icon--navy">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+          </div>
+          <h2 class="section-title" style="font-size:2rem; margin-top:1rem;">Our Purpose</h2>
+          <p class="method-card__text">
+            We believe that fitness should be accessible, enjoyable, and free from the pressures of elite competition. Traditional sports can often <span class="bold-accent">alienate individuals who don't fit a specific mold</span> or who don't thrive in highly competitive environments.
+          </p>
+          <p class="method-card__text" style="margin-bottom: 2rem;">
+            Our "why" is rooted in ensuring that <mark class="highlight">absolutely no one is left on the sidelines</mark> when it comes to experiencing the physical, mental, and social benefits of athletic movement.
+          </p>
+          <div class="img-frame method-card__frame" style="margin-top:auto;">
+            <img src="assets/nafb_sportxercise_gallery2_1780402992728.png" alt="NAFB Session" class="img-cover" />
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
-  <section class="inclusive-gallery mt-4">
-    <h2>Inclusive Gallery</h2>
-    <div class="gallery-grid">
-      <div class="gallery-item glass-panel">
-        <img src="assets/inclusive_fitness_1_1780404534072.png" alt="Diverse group exercising in modern gym" />
+  <!-- ════════════════════════════════════════════════════════
+       REDEFINING FITNESS (STEPS)
+       ════════════════════════════════════════════════════════ -->
+  <section class="section section--alt flow-section">
+    <div class="container">
+      <div class="section-header section-header--center">
+        <h2 class="section-title reveal-delay-1">Redefining <span class="text-gradient">Fitness</span></h2>
+        <div class="rule rule--center reveal-delay-2"></div>
       </div>
-      <div class="gallery-item glass-panel">
-        <img src="assets/inclusive_fitness_2_1780404549366.png" alt="Happy group doing light workout outdoors" />
+
+      <div class="flow__grid">
+        <!-- Step 1 -->
+        <div class="flow-step reveal-step">
+          <div class="flow-step__header">
+            <div class="flow-step__num pulse-animation">1</div>
+            <div class="flow-step__connector"></div>
+          </div>
+          <h3 class="flow-step__title">Join or Partner</h3>
+          <p class="flow-step__text">Register as an individual or sign up your club to <mark class="highlight">integrate our Sportxercise methodology</mark> into your programs.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flow-step reveal-step reveal-delay-1">
+          <div class="flow-step__header">
+            <div class="flow-step__num flow-step__num--navy pulse-animation" style="animation-delay: 0.2s;">2</div>
+            <div class="flow-step__connector"></div>
+          </div>
+          <h3 class="flow-step__title">Learn the Fundamentals</h3>
+          <p class="flow-step__text">Access our <mark class="highlight">inclusive training guides</mark> and coaching resources to adapt sports movements for any ability level.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="flow-step reveal-step reveal-delay-2">
+          <div class="flow-step__header">
+            <div class="flow-step__num flow-step__num--teal pulse-animation" style="animation-delay: 0.4s;">3</div>
+          </div>
+          <h3 class="flow-step__title">Move Together</h3>
+          <p class="flow-step__text">Participate in our <mark class="highlight">pressure-free group sessions</mark> and start building lifelong confidence and community connections.</p>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       SESSION DETAILS
+       ════════════════════════════════════════════════════════ -->
+  <section class="session-details section section--alt">
+    <div class="container">
+      <div class="session-grid">
+        <div class="session-card card reveal-left">
+          <div class="session-card__icon session-card__icon--gold">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="session-card__title display">What to Expect</h3>
+          <p class="session-card__text">
+            A typical Sportxercise session is incredibly engaging and completely adaptable. You won't find whistles or stopwatches here — instead, you'll find a <mark class="highlight">supportive group environment</mark> led by positive coaches.
+          </p>
+          <p class="session-card__text">
+            We start with a gentle dynamic warm-up, transition into sport-specific fundamental drills (like dribbling a basketball or passing a soccer ball at a comfortable pace), and end with a <mark class="highlight">cool-down and group reflection</mark>.
+          </p>
+        </div>
+
+        <div class="session-card card reveal-right">
+          <div class="session-card__icon session-card__icon--navy">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3 class="session-card__title display">Beyond the Field</h3>
+          <p class="session-card__text">
+            The positive effects of Sportxercise ripple into everyday life. Our participants report improved sleep, better concentration, and <mark class="highlight">significantly lower stress levels</mark>.
+          </p>
+          <p class="session-card__text">
+            More importantly, the sense of belonging and community forged during these sessions creates lasting friendships and a powerful <mark class="highlight">support network</mark> that extends far beyond our programs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       GALLERY
+       ════════════════════════════════════════════════════════ -->
+  <section class="gallery section">
+    <div class="container">
+      <div class="section-header section-header--center">
+        <h2 class="section-title reveal reveal-delay-1">Inclusive Gallery</h2>
+        <div class="rule rule--center reveal reveal-delay-2"></div>
+      </div>
+
+      <div class="gallery__grid">
+        <div class="gallery__item gallery__item--large img-frame reveal">
+          <img src="assets/inclusive_fitness_1_1780404534072.png" alt="Diverse group exercising" class="img-cover" />
+          <div class="gallery__overlay">
+            <span class="gallery__label">All bodies, all abilities</span>
+          </div>
+        </div>
+        <div class="gallery__item img-frame reveal reveal-delay-1">
+          <img src="assets/inclusive_fitness_2_1780404549366.png" alt="Happy group outdoors" class="img-cover" />
+          <div class="gallery__overlay">
+            <span class="gallery__label">Joy through movement</span>
+          </div>
+        </div>
+        <div class="gallery__item img-frame reveal reveal-delay-2">
+          <img src="assets/hero_sports_movement_1780402880276.png" alt="Dynamic sports movement" class="img-cover" />
+          <div class="gallery__overlay">
+            <span class="gallery__label">Sport fundamentals for all</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center reveal" style="margin-top:3rem;">
+        <a routerLink="/contact" class="btn btn-primary">
+          Get Involved
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
 </div>
