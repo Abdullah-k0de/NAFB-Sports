@@ -401,27 +401,39 @@
   .navbar__links {
     display: none;
   }
+  .navbar__hamburger {
+    display: flex;
+  }
 }
 
 @media (max-width: 768px) {
   .desktop-only { display: none !important; }
 
-  .navbar__hamburger {
-    display: flex;
-  }
-
   .navbar__sub {
     display: none;
+  }
+
+  .navbar__inner {
+    height: 60px;
+  }
+
+  .navbar__brand {
+    gap: 0.5rem;
+  }
+
+  .mobile-drawer {
+    width: 100%;
+    max-width: 320px;
   }
 }
 
 @media (max-width: 480px) {
-  .navbar__logo-wrap {
-    width: 44px;
-    height: 44px;
+  .navbar__logo {
+    width: 32px;
+    height: 32px;
   }
 
   .navbar__name {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }
