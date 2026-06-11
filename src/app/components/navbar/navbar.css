@@ -46,7 +46,7 @@
 }
 
 .navbar__logo {
-  height: 64px;
+  height: 100px;
   width: auto;
   object-fit: contain;
   transition: transform var(--t-base) ease;
@@ -95,7 +95,7 @@
 }
 
 .navbar__link {
-  font-size: 0.875rem;
+  font-size: 1.05rem;
   font-weight: 500;
   color: var(--txt-sec);
   text-decoration: none;
@@ -165,6 +165,8 @@
 
 .navbar__cta {
   flex-shrink: 0;
+  font-size: 1.05rem;
+  padding: 0.65rem 1.5rem;
 }
 
 /* ── Hamburger ── */
@@ -193,9 +195,18 @@
   transition: transform var(--t-base) var(--ease-out), opacity var(--t-base) ease;
 }
 
-.navbar__bar--open:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.navbar__bar--open:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.navbar__bar--open:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.navbar__bar--open:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+
+.navbar__bar--open:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.navbar__bar--open:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
 
 /* ================================================================
    MOBILE DRAWER
@@ -245,12 +256,10 @@
 }
 
 .mobile-drawer__logo {
-  width: 48px;
-  height: 48px;
+  width: 180px;
+  height: auto;
+  max-height: 85px;
   object-fit: contain;
-  background: var(--bg-muted);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
   padding: 4px;
 }
 
@@ -291,7 +300,7 @@
 
 .mobile-link {
   display: block;
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 500;
   color: var(--txt-sec);
   text-decoration: none;
@@ -371,7 +380,7 @@
   height: 16px;
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   transition: transform var(--t-base) var(--ease-out);
 }
 
@@ -401,13 +410,16 @@
   .navbar__links {
     display: none;
   }
+
   .navbar__hamburger {
     display: flex;
   }
 }
 
 @media (max-width: 768px) {
-  .desktop-only { display: none !important; }
+  .desktop-only {
+    display: none !important;
+  }
 
   .navbar__sub {
     display: none;
@@ -429,8 +441,9 @@
 
 @media (max-width: 480px) {
   .navbar__logo {
-    width: 32px;
-    height: 32px;
+    margin-top: 20px;
+    height: 65px;
+    width: auto;
   }
 
   .navbar__name {
