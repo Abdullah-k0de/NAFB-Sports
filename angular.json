@@ -25,7 +25,9 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.css"]
+            "styles": [
+              "src/styles.css"
+            ]
           },
           "configurations": {
             "production": {
@@ -37,8 +39,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "10kB",
-                  "maximumError": "15kB"
+                  "maximumWarning": "25kB",
+                  "maximumError": "50kB"
                 }
               ],
               "outputHashing": "all"

@@ -25,7 +25,7 @@
             <p class="text-sec" style="margin-bottom: 2rem;">Fill out the form below and our team will respond as soon
               as possible.</p>
 
-            <form action="https://api.web3forms.com/submit" method="POST" class="form">
+            <form action="https://api.web3forms.com/submit" method="POST" class="form" (submit)="onSubmit($event)">
               <input type="hidden" name="access_key" [value]="web3FormsKey">
               <input type="hidden" name="redirect" [value]="redirectUrl">
               <input type="checkbox" name="botcheck" class="hidden" style="display: none;">

@@ -14,6 +14,15 @@ export class ContactComponent {
   web3FormsKey = environment.web3FormsKey;
   redirectUrl = window.location.origin + '/thank-you-contact';
 
+  onSubmit(event: Event) {
+    // hCaptcha automatically injects a fallback 'g-recaptcha-response' field for compatibility.
+    // Removing that for being in free tier
+    const recaptchaFallback = document.getElementsByName('g-recaptcha-response')[0];
+    if (recaptchaFallback) {
+      recaptchaFallback.remove();
+    }
+  }
+
   faqs = [
     {
       question: 'How can I volunteer for an event?',
