@@ -22,7 +22,7 @@
   pointer-events: none;
 }
 
-[data-theme="dark"] .not-found::before {
+:host-context([data-theme="dark"]) .not-found::before {
   background: radial-gradient(circle at center, rgba(15, 45, 82, 0.2) 0%, transparent 60%);
 }
 

@@ -63,7 +63,7 @@
   color: var(--navy);
 }
 
-[data-theme="dark"] .hero__headline-accent {
+:host-context([data-theme="dark"]) .hero__headline-accent {
   color: var(--gold-light);
 }
 
@@ -122,7 +122,7 @@
 }
 
 .hero__trust-divider {
-  background: rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.3);
   width: 60px;
   height: 1px;
   margin: 0 auto;
@@ -136,7 +136,7 @@
   line-height: 1;
 }
 
-[data-theme="dark"] .hero__trust-num {
+:host-context([data-theme="dark"]) .hero__trust-num {
   color: var(--txt);
 }
 
@@ -263,7 +263,7 @@
   animation: scrollCue 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
 }
 
-[data-theme="dark"] .hero__scroll-line {
+:host-context([data-theme="dark"]) .hero__scroll-line {
   background: var(--gold);
 }
 
@@ -346,8 +346,13 @@
 }
 
 @keyframes moveDashes {
-  from { background-position: 0 0; }
-  to { background-position: 0 8px; }
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 0 8px;
+  }
 }
 
 .trust-bar .reveal.is-visible .champ-highlight-letter::after {
@@ -357,7 +362,7 @@
   z-index: -1;
 }
 
-[data-theme="dark"] .champ-highlight-letter {
+:host-context([data-theme="dark"]) .champ-highlight-letter {
   color: var(--gold-light);
 }
 
@@ -442,22 +447,22 @@
   color: #475569;
 }
 
-[data-theme="dark"] .pillar-card__icon--navy {
+:host-context([data-theme="dark"]) .pillar-card__icon--navy {
   background: rgba(15, 45, 82, 0.3);
   color: #93c5fd;
 }
 
-[data-theme="dark"] .pillar-card__icon--gold {
+:host-context([data-theme="dark"]) .pillar-card__icon--gold {
   background: rgba(184, 132, 26, 0.15);
   color: var(--gold-light);
 }
 
-[data-theme="dark"] .pillar-card__icon--teal {
+:host-context([data-theme="dark"]) .pillar-card__icon--teal {
   background: rgba(13, 148, 136, 0.15);
   color: #2dd4bf;
 }
 
-[data-theme="dark"] .pillar-card__icon--slate {
+:host-context([data-theme="dark"]) .pillar-card__icon--slate {
   background: rgba(71, 85, 105, 0.2);
   color: #94a3b8;
 }
@@ -634,21 +639,26 @@
     text-align: center;
     gap: 3rem;
   }
+
   .hero__content {
     max-width: 100% !important;
   }
+
   .hero__trust-wrapper {
     width: 100%;
   }
+
   .hero__trust {
     flex-direction: row !important;
     flex-wrap: wrap;
     justify-content: center;
   }
+
   .feature-split {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+
   .feature-split:nth-child(even) .feature-split__content {
     order: 0;
   }
@@ -703,28 +713,28 @@
 
 /* ── CHAMPIONS GRID ── */
 .champions-grid {
-  display: flex; 
-  justify-content: center; 
-  gap: clamp(1rem, 3vw, 3rem); 
-  flex-wrap: nowrap; 
+  display: flex;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 3rem);
+  flex-wrap: nowrap;
   padding-top: 4rem;
 }
 
 .champ-column {
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
 }
 
 .champ-full-word {
-  position: absolute; 
-  bottom: 100%; 
-  left: 50%; 
-  transform: translateX(-50%); 
-  font-size: 0.8rem; 
-  letter-spacing: 0.05em; 
-  white-space: nowrap; 
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
   margin-bottom: 2rem;
 }
 
@@ -733,13 +743,13 @@
 }
 
 .champ-spacer {
-  position: absolute; 
-  bottom: 100%; 
-  left: 50%; 
-  transform: translateX(-50%); 
-  height: 1.5rem; 
-  border-left: 1px dashed var(--gold); 
-  opacity: 0.6; 
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1.5rem;
+  border-left: 1px dashed var(--gold);
+  opacity: 0.6;
   margin-bottom: 0.25rem;
 }
 
@@ -802,21 +812,164 @@
     transform: none;
     margin-bottom: 0;
     font-size: 1.25rem;
-    order: 2; /* Put word AFTER the big letter */
+    order: 2;
+    /* Put word AFTER the big letter */
   }
 
   .champ-highlight-letter {
-    display: none; /* Hide the small highlight letter since it's redundant with the big letter next to it */
+    display: none;
+    /* Hide the small highlight letter since it's redundant with the big letter next to it */
   }
 
   .champ-spacer {
-    display: none; /* Hide the dashed line on mobile */
+    display: none;
+    /* Hide the dashed line on mobile */
   }
 
   .champ-spell-letter {
     font-size: 2.5rem;
     width: 40px;
     text-align: center;
-    order: 1; /* Put big letter FIRST */
+    order: 1;
+    /* Put big letter FIRST */
   }
+}
+
+/* ── DONATION WIDGET ── */
+.donation-widget-section {
+  background: var(--bg-surface);
+}
+
+.donation-widget {
+  width: 100%;
+  max-width: 420px;
+  padding: 2rem;
+  background: var(--bg-card);
+  border-radius: var(--r-xl);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+}
+
+.donation-toggle {
+  display: flex;
+  background: var(--bg-muted);
+  border-radius: var(--r-md);
+  padding: 0.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: none;
+  background: transparent;
+  border-radius: var(--r-sm);
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--txt-sec);
+  cursor: pointer;
+  transition: all var(--t-fast) ease;
+}
+
+.toggle-btn.active {
+  background: var(--navy);
+  color: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+:host-context([data-theme="dark"]) .toggle-btn.active {
+  background: var(--gold);
+  color: var(--navy-dark);
+}
+
+.donation-presets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.preset-btn {
+  padding: 1rem;
+  background: var(--bg-muted);
+  border: 2px solid transparent;
+  border-radius: var(--r-md);
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--txt);
+  cursor: pointer;
+  transition: all var(--t-fast) ease;
+}
+
+.preset-btn:hover {
+  background: var(--bg-surface);
+  border-color: var(--border);
+}
+
+.preset-btn.active {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+
+:host-context([data-theme="dark"]) .preset-btn.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--navy-dark);
+}
+
+.custom-amount-input {
+  display: flex;
+  background: var(--bg-muted);
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.currency-select {
+  padding: 1rem;
+  background: var(--bg-surface);
+  border-right: 1px solid var(--border);
+  font-weight: 600;
+  color: var(--txt-sec);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.input-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-inline: 1rem;
+}
+
+.currency-symbol {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--txt);
+  margin-right: 0.5rem;
+}
+
+.custom-amount-input input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--txt);
+  outline: none;
+}
+
+.donate-submit-btn {
+  justify-content: center;
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-block: 1rem;
 }

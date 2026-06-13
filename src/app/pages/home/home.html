@@ -49,14 +49,16 @@
           <div class="hero__trust-item flex-col-center">
             <span class="hero__trust-num count-up" data-target="9"
               style="color:#fff; font-size: 3rem; text-shadow: 0 2px 8px rgba(0,0,0,0.4);">0</span>
-            <span class="hero__trust-label" style="color:#e2e8f0; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;">Core
+            <span class="hero__trust-label"
+              style="color:#e2e8f0; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;">Core
               Values</span>
           </div>
           <div class="hero__trust-divider"></div>
           <div class="hero__trust-item flex-col-center">
             <span class="hero__trust-num count-up" data-target="0"
               style="color:#fff; font-size: 3rem; text-shadow: 0 2px 8px rgba(0,0,0,0.4);">0</span>
-            <span class="hero__trust-label" style="color:#e2e8f0; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;">Barriers</span>
+            <span class="hero__trust-label"
+              style="color:#e2e8f0; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;">Barriers</span>
           </div>
           <div class="hero__trust-divider"></div>
           <div class="hero__trust-item flex-col-center">
@@ -82,151 +84,52 @@
   <section class="trust-bar section--alt section--sm">
     <div class="container text-center reveal">
       <div class="champions-grid">
-        
+
         <div class="champ-column" *ngFor="let v of champValues; let i = index">
-          
+
           <span class="champ-full-word">
-            <span class="champ-highlight-letter">{{ v.letter }}</span><span class="champ-word-rest">{{ v.word.substring(1) }}</span>
+            <span class="champ-highlight-letter">{{ v.letter }}</span><span class="champ-word-rest">{{
+              v.word.substring(1) }}</span>
           </span>
-          
+
           <div class="champ-spacer"></div>
 
           <span class="champ-spell-letter" [style.transition-delay.s]="0.5 + (i * 0.1)">{{ v.letter }}</span>
-        
+
         </div>
 
       </div>
     </div>
   </section>
 
-<!-- ════════════════════════════════════════════════════════
+  <!-- ════════════════════════════════════════════════════════
        OUR MISSION & CHAMPIONS
        ════════════════════════════════════════════════════════ -->
-<section class="mission section parallax-section parallax-section--dark"
-  style="background-image: url('assets/youth_fitness_group.png'); background-position: center;">
-  <!-- Lighten the dark gradient overlay for this specific section -->
-  <div style="position:absolute; inset:0; background:rgba(15, 45, 82, 0.2); z-index:0;"></div>
+  <section class="mission section parallax-section parallax-section--dark"
+    style="background-image: url('assets/youth_fitness_group.png'); background-position: center;">
+    <!-- Lighten the dark gradient overlay for this specific section -->
+    <div style="position:absolute; inset:0; background:rgba(15, 45, 82, 0.2); z-index:0;"></div>
 
-  <div class="container text-center" style="position:relative; z-index:1;">
+    <div class="container text-center" style="position:relative; z-index:1;">
 
-    <div class="section-header section-header--center">
-      <h2 class="section-title reveal">Our <span class="text-gradient">Mission</span></h2>
-      <div class="rule rule--center reveal"></div>
-    </div>
-
-    <p class="mission-text display reveal"
-      style="max-width:1000px; margin-inline:auto; line-height:1.4; color:#fff; font-size: clamp(1.5rem, 3vw, 2.25rem);">
-      To build lifelong<br>
-      <span class="text-gradient mission-text__gold"
-        style="font-size: clamp(2.5rem, 4vw, 3.5rem);">C.H.A.M.P.I.O.N.S.</span><br>
-      of health and confidence by integrating <mark class="highlight"
-        style="background:rgba(212,175,55,0.3); color:#fff;">sports fundamentals</mark> with positive coaching — for
-      everyone.
-    </p>
-    <div class="rule rule--center reveal reveal-delay-2" style="background: var(--gold);"></div>
-    <a routerLink="/about" class="btn btn-outline reveal reveal-delay-3"
-      style="margin-top:2rem; background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.4); color:#fff;">
-      Learn About Our Mission
-      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="5" y1="12" x2="19" y2="12" />
-        <polyline points="12 5 19 12 12 19" />
-      </svg>
-    </a>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════
-       THE NAFB DIFFERENCE — 4 Pillars
-       ════════════════════════════════════════════════════════ -->
-<section class="pillars section section--alt">
-  <div class="container">
-    <div class="section-header section-header--center">
-      <h2 class="section-title reveal reveal-delay-1">The NAFB <span class="text-gradient">Difference</span></h2>
-      <div class="rule rule--center reveal reveal-delay-2"></div>
-    </div>
-
-    <div class="pillars__grid">
-      <div class="pillar-card card card-elevated reveal">
-        <div class="pillar-card__icon pillar-card__icon--navy">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-          </svg>
-        </div>
-        <h3 class="pillar-card__title">Zero Pressure</h3>
-        <p class="pillar-card__text">Movement focused entirely on personal milestones, not comparison, competition, or
-          scoreboard outcomes.</p>
+      <div class="section-header section-header--center">
+        <h2 class="section-title reveal">Our <span class="text-gradient">Mission</span></h2>
+        <div class="rule rule--center reveal"></div>
       </div>
 
-      <div class="pillar-card card card-elevated reveal reveal-delay-1">
-        <div class="pillar-card__icon pillar-card__icon--gold">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-          </svg>
-        </div>
-        <h3 class="pillar-card__title">Holistic Wellness</h3>
-        <p class="pillar-card__text">A mind and body focus that builds genuine confidence, reduces anxiety, and
-          fosters real community connections.</p>
-      </div>
-
-      <div class="pillar-card card card-elevated reveal reveal-delay-2">
-        <div class="pillar-card__icon pillar-card__icon--teal">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-            <circle cx="9" cy="7" r="4" />
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-          </svg>
-        </div>
-        <h3 class="pillar-card__title">Fully Inclusive</h3>
-        <p class="pillar-card__text">Every program designed for all backgrounds, abilities, and ages — cost or ability
-          is never a barrier to participation.</p>
-      </div>
-
-      <div class="pillar-card card card-elevated reveal reveal-delay-3">
-        <div class="pillar-card__icon pillar-card__icon--slate">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="8" r="7" />
-            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
-          </svg>
-        </div>
-        <h3 class="pillar-card__title">Community Built</h3>
-        <p class="pillar-card__text">Partnerships with local clubs, schools, and centers to deliver sport-based
-          fitness where communities already gather.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════
-       WHO WE SERVE — Image + Text Split
-       ════════════════════════════════════════════════════════ -->
-<section class="feature-split section">
-  <div class="container feature-split__inner">
-    <div class="feature-split__image-col reveal-left">
-      <div class="img-frame feature-split__frame zoom-wrapper is-visible">
-        <img src="assets/nafb_team_leader_1780403010227.png" alt="NAFB Sports Community" class="img-cover" />
-      </div>
-    </div>
-    <div class="feature-split__content reveal-right">
-      <h2 class="section-title">Who We <span class="text-gradient">Serve</span></h2>
-      <div class="rule" style="margin-bottom:1.5rem;"></div>
-      <p class="section-sub" style="max-width:100%;">
-        NAFB Sports is dedicated to communities, families, and individuals of all backgrounds and ability levels.
-        Whether you're stepping onto a field for the first time or looking to reclaim your health in a <mark
-          class="highlight">low-stress environment</mark> — our doors are open.
+      <p class="mission-text display reveal"
+        style="max-width:1000px; margin-inline:auto; line-height:1.4; color:#fff; font-size: clamp(1.5rem, 3vw, 2.25rem);">
+        To build lifelong<br>
+        <span class="text-gradient mission-text__gold"
+          style="font-size: clamp(2.5rem, 4vw, 3.5rem);">C.H.A.M.P.I.O.N.S.</span><br>
+        of health and confidence by integrating <mark class="highlight"
+          style="background:rgba(212,175,55,0.3); color:#fff;">sports fundamentals</mark> with positive coaching — for
+        everyone.
       </p>
-      <p class="feature-split__para">
-        We partner with local youth athletic clubs, schools, and community centers to deliver specialized, <mark
-          class="highlight">fully inclusive</mark> fitness routines that bring people together and create lasting
-        change.
-      </p>
-      <a routerLink="/about" class="btn btn-primary" style="margin-top:1.5rem;">
-        Our Story
+      <div class="rule rule--center reveal reveal-delay-2" style="background: var(--gold);"></div>
+      <a routerLink="/about" class="btn btn-outline reveal reveal-delay-3"
+        style="margin-top:2rem; background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.4); color:#fff;">
+        Learn About Our Mission
         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12" />
@@ -234,147 +137,323 @@
         </svg>
       </a>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ════════════════════════════════════════════════════════
-       SPORTXERCISE FEATURE — Reversed Split
+
+  <!-- ════════════════════════════════════════════════════════
+       DONATION WIDGET
        ════════════════════════════════════════════════════════ -->
-<section class="feature-split feature-split--alt section section--alt">
-  <div class="container feature-split__inner feature-split__inner--reversed">
-    <div class="feature-split__content reveal-left">
-      <h2 class="section-title">The <span class="text-gradient">Sportxercise</span> Method</h2>
-      <div class="rule" style="margin-bottom:1.5rem;"></div>
-      <p class="section-sub" style="max-width:100%;">
-        Sportxercise translates <mark class="highlight">core sports fundamentals</mark> — the agility of tennis, the
-        coordination of basketball, the endurance of soccer — into inclusive, pressure-free fitness routines. Anyone
-        can participate. Everyone benefits.
-      </p>
-      <ul class="feature-split__list">
-        <li class="feature-split__list-item">
-          <div class="feature-split__check">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12" />
+  <section class="donation-widget-section section">
+    <div class="container feature-split__inner">
+      <div class="feature-split__content reveal-left" style="align-self: center;">
+        <h2 class="section-title">Support Our <span class="text-gradient">Mission</span></h2>
+        <div class="rule" style="margin-bottom:1.5rem;"></div>
+        <p class="section-sub" style="max-width:100%;">
+          Your generosity enables us to provide inclusive, pressure-free sports and fitness programs for everyone,
+          regardless of age or ability.
+        </p>
+        <p class="feature-split__para">
+          Choose a one-time gift or become a monthly champion to sustain our community efforts year-round.
+        </p>
+      </div>
+
+      <div class="feature-split__image-col reveal-right" style="display: flex; justify-content: center;">
+        <div class="donation-widget card card-elevated">
+          <!-- Toggle -->
+          <div class="donation-toggle">
+            <button class="toggle-btn" [class.active]="donationType === 'one-time'" (click)="donationType = 'one-time'">
+              <span *ngIf="donationType === 'one-time'">✓</span> One-time
+            </button>
+            <button class="toggle-btn" [class.active]="donationType === 'monthly'" (click)="donationType = 'monthly'">
+              <span *ngIf="donationType === 'monthly'">✓</span> Monthly
+            </button>
+          </div>
+
+          <p class="text-center text-sec" style="margin-block: 1.5rem 1rem;">Choose an amount to donate</p>
+
+          <!-- Presets -->
+          <div *ngIf="donationType === 'one-time'" class="donation-presets" style="animation: slideDown 0.3s ease;">
+            <button *ngFor="let amount of presetAmounts" 
+                    class="preset-btn" 
+                    [class.active]="selectedAmount === amount"
+                    (click)="selectPreset(amount)">
+              ${{ amount }}
+            </button>
+            <button class="preset-btn" (click)="selectPreset('custom')">
+              Custom
+            </button>
+          </div>
+
+          <div *ngIf="donationType === 'monthly'" class="donation-presets" style="animation: slideDown 0.3s ease;">
+            <button *ngFor="let amount of presetAmounts" 
+                    class="preset-btn" 
+                    [class.active]="selectedAmount === amount"
+                    (click)="selectPreset(amount)">
+              ${{ amount }}
+            </button>
+            <button class="preset-btn" (click)="selectPreset('custom')">
+              Custom
+            </button>
+          </div>
+
+          <!-- Submit -->
+          <button class="btn btn-primary donate-submit-btn" (click)="handleDonate()" style="margin-top: 1rem;">
+            Donate
+          </button>
+
+          <p class="text-center text-sec"
+            style="font-size: 0.85rem; margin-top: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            Securely processed by Stripe
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       THE NAFB DIFFERENCE — 4 Pillars
+       ════════════════════════════════════════════════════════ -->
+  <section class="pillars section section--alt">
+    <div class="container">
+      <div class="section-header section-header--center">
+        <h2 class="section-title reveal reveal-delay-1">The NAFB <span class="text-gradient">Difference</span></h2>
+        <div class="rule rule--center reveal reveal-delay-2"></div>
+      </div>
+
+      <div class="pillars__grid">
+        <div class="pillar-card card card-elevated reveal">
+          <div class="pillar-card__icon pillar-card__icon--navy">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg>
           </div>
-          <span>Sport-based movements adapted for all fitness levels</span>
-        </li>
-        <li class="feature-split__list-item">
-          <div class="feature-split__check">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12" />
-            </svg>
-          </div>
-          <span>Positive coaching with focus on personal progress</span>
-        </li>
-        <li class="feature-split__list-item">
-          <div class="feature-split__check">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12" />
-            </svg>
-          </div>
-          <span>Group sessions that build community and belonging</span>
-        </li>
-      </ul>
-      <a routerLink="/sportxercise" class="btn btn-primary" style="margin-top:1.5rem;">Discover Sportxercise</a>
-    </div>
-    <div class="feature-split__image-col reveal-right">
-      <div class="img-frame feature-split__frame zoom-wrapper is-visible">
-        <img src="assets/nafb_hero_movement_1780402950162.png" alt="Sportxercise in action" class="img-cover" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════
-       GALLERY — Photo Strip
-       ════════════════════════════════════════════════════════ -->
-<section class="gallery-strip section">
-  <div class="container">
-    <div class="section-header section-header--center" style="margin-bottom:2.5rem;">
-      <h2 class="section-title reveal reveal-delay-1">See NAFB Sports in Action</h2>
-    </div>
-    <div class="gallery-strip__grid">
-      <div class="gallery-strip__item img-frame reveal zoom-wrapper">
-        <img src="assets/inclusive_fitness_1_1780404534072.png" alt="NAFB Community Fitness" class="img-cover" />
-      </div>
-      <div class="gallery-strip__item img-frame reveal reveal-delay-1 zoom-wrapper">
-        <img src="assets/youth_fitness_group.png" alt="Sportxercise Session" class="img-cover" />
-      </div>
-      <div class="gallery-strip__item img-frame reveal reveal-delay-2 zoom-wrapper">
-        <img src="assets/inclusive_fitness_2_1780404549366.png" alt="Inclusive Movement" class="img-cover" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════
-       UPCOMING EVENT BANNER
-       ════════════════════════════════════════════════════════ -->
-<section class="event-banner section section--alt">
-  <div class="container">
-    <div class="event-banner__card reveal-step"
-      style="background: linear-gradient(135deg, var(--navy) 0%, rgba(15, 45, 82, 0.8) 100%); color: #fff; padding: 3rem; border-radius: var(--r-lg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; box-shadow: 0 15px 40px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1);">
-      <div class="event-banner__info">
-        <div class="event-banner__badge"
-          style="background: rgba(212, 175, 55, 0.2); color: var(--gold); display: inline-block; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1.5rem; border: 1px solid rgba(212,175,55,0.4);">
-          Next Upcoming Event</div>
-
-        <div *ngIf="calendarService.loading" class="event-banner__loading" style="font-size: 1.2rem; color: #cbd5e1;">
-          Loading upcoming events...</div>
-
-        <h3 *ngIf="!calendarService.loading && nextEvent" class="event-banner__title display"
-          style="font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 1rem; color: #fff;">{{ nextEvent.summary ||
-          nextEvent.title }}</h3>
-
-        <div *ngIf="!calendarService.loading && nextEvent" class="event-banner__meta"
-          style="color: #cbd5e1; font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem;">
-          <span style="display: flex; align-items: center; gap: 0.5rem;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-              stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-              <line x1="16" y1="2" x2="16" y2="6" />
-              <line x1="8" y1="2" x2="8" y2="6" />
-              <line x1="3" y1="10" x2="21" y2="10" />
-            </svg>
-            {{ (nextEvent.start?.dateTime || nextEvent.start?.date || nextEvent.date) | date:'EEEE, MMMM d, yyyy' }}
-          </span>
+          <h3 class="pillar-card__title">Zero Pressure</h3>
+          <p class="pillar-card__text">Movement focused entirely on personal milestones, not comparison, competition, or
+            scoreboard outcomes.</p>
         </div>
 
-        <h3 *ngIf="!calendarService.loading && !nextEvent" class="event-banner__title"
-          style="font-size: 1.5rem; color: #cbd5e1;">No upcoming events. Check back soon.</h3>
-      </div>
-      <div class="event-banner__action">
-        <a routerLink="/events" class="btn btn-lg"
-          style="background: var(--gold); color: #fff; border-color: var(--gold); font-weight: 700; box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);">View
-          Full Calendar</a>
+        <div class="pillar-card card card-elevated reveal reveal-delay-1">
+          <div class="pillar-card__icon pillar-card__icon--gold">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+          </div>
+          <h3 class="pillar-card__title">Holistic Wellness</h3>
+          <p class="pillar-card__text">A mind and body focus that builds genuine confidence, reduces anxiety, and
+            fosters real community connections.</p>
+        </div>
+
+        <div class="pillar-card card card-elevated reveal reveal-delay-2">
+          <div class="pillar-card__icon pillar-card__icon--teal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
+          <h3 class="pillar-card__title">Fully Inclusive</h3>
+          <p class="pillar-card__text">Every program designed for all backgrounds, abilities, and ages — cost or ability
+            is never a barrier to participation.</p>
+        </div>
+
+        <div class="pillar-card card card-elevated reveal reveal-delay-3">
+          <div class="pillar-card__icon pillar-card__icon--slate">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="7" />
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+            </svg>
+          </div>
+          <h3 class="pillar-card__title">Community Built</h3>
+          <p class="pillar-card__text">Partnerships with local clubs, schools, and centers to deliver sport-based
+            fitness where communities already gather.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ════════════════════════════════════════════════════════
+  <!-- ════════════════════════════════════════════════════════
+       WHO WE SERVE — Image + Text Split
+       ════════════════════════════════════════════════════════ -->
+  <section class="feature-split section">
+    <div class="container feature-split__inner">
+      <div class="feature-split__image-col reveal-left">
+        <div class="img-frame feature-split__frame zoom-wrapper is-visible">
+          <img src="assets/nafb_team_leader_1780403010227.png" alt="NAFB Sports Community" class="img-cover" />
+        </div>
+      </div>
+      <div class="feature-split__content reveal-right">
+        <h2 class="section-title">Who We <span class="text-gradient">Serve</span></h2>
+        <div class="rule" style="margin-bottom:1.5rem;"></div>
+        <p class="section-sub" style="max-width:100%;">
+          NAFB Sports is dedicated to communities, families, and individuals of all backgrounds and ability levels.
+          Whether you're stepping onto a field for the first time or looking to reclaim your health in a <mark
+            class="highlight">low-stress environment</mark> — our doors are open.
+        </p>
+        <p class="feature-split__para">
+          We partner with local youth athletic clubs, schools, and community centers to deliver specialized, <mark
+            class="highlight">fully inclusive</mark> fitness routines that bring people together and create lasting
+          change.
+        </p>
+        <a routerLink="/about" class="btn btn-primary" style="margin-top:1.5rem;">
+          Our Story
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       SPORTXERCISE FEATURE — Reversed Split
+       ════════════════════════════════════════════════════════ -->
+  <section class="feature-split feature-split--alt section section--alt">
+    <div class="container feature-split__inner feature-split__inner--reversed">
+      <div class="feature-split__content reveal-left">
+        <h2 class="section-title">The <span class="text-gradient">Sportxercise</span> Method</h2>
+        <div class="rule" style="margin-bottom:1.5rem;"></div>
+        <p class="section-sub" style="max-width:100%;">
+          Sportxercise translates <mark class="highlight">core sports fundamentals</mark> — the agility of tennis, the
+          coordination of basketball, the endurance of soccer — into inclusive, pressure-free fitness routines. Anyone
+          can participate. Everyone benefits.
+        </p>
+        <ul class="feature-split__list">
+          <li class="feature-split__list-item">
+            <div class="feature-split__check">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <span>Sport-based movements adapted for all fitness levels</span>
+          </li>
+          <li class="feature-split__list-item">
+            <div class="feature-split__check">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <span>Positive coaching with focus on personal progress</span>
+          </li>
+          <li class="feature-split__list-item">
+            <div class="feature-split__check">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <span>Group sessions that build community and belonging</span>
+          </li>
+        </ul>
+        <a routerLink="/sportxercise" class="btn btn-primary" style="margin-top:1.5rem;">Discover Sportxercise</a>
+      </div>
+      <div class="feature-split__image-col reveal-right">
+        <div class="img-frame feature-split__frame zoom-wrapper is-visible">
+          <img src="assets/nafb_hero_movement_1780402950162.png" alt="Sportxercise in action" class="img-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       GALLERY — Photo Strip
+       ════════════════════════════════════════════════════════ -->
+  <section class="gallery-strip section">
+    <div class="container">
+      <div class="section-header section-header--center" style="margin-bottom:2.5rem;">
+        <h2 class="section-title reveal reveal-delay-1">See NAFB Sports in Action</h2>
+      </div>
+      <div class="gallery-strip__grid">
+        <div class="gallery-strip__item img-frame reveal zoom-wrapper">
+          <img src="assets/inclusive_fitness_1_1780404534072.png" alt="NAFB Community Fitness" class="img-cover" />
+        </div>
+        <div class="gallery-strip__item img-frame reveal reveal-delay-1 zoom-wrapper">
+          <img src="assets/youth_fitness_group.png" alt="Sportxercise Session" class="img-cover" />
+        </div>
+        <div class="gallery-strip__item img-frame reveal reveal-delay-2 zoom-wrapper">
+          <img src="assets/inclusive_fitness_2_1780404549366.png" alt="Inclusive Movement" class="img-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
+       UPCOMING EVENT BANNER
+       ════════════════════════════════════════════════════════ -->
+  <section class="event-banner section section--alt">
+    <div class="container">
+      <div class="event-banner__card reveal-step"
+        style="background: linear-gradient(135deg, var(--navy) 0%, rgba(15, 45, 82, 0.8) 100%); color: #fff; padding: 3rem; border-radius: var(--r-lg); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; box-shadow: 0 15px 40px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1);">
+        <div class="event-banner__info">
+          <div class="event-banner__badge"
+            style="background: rgba(212, 175, 55, 0.2); color: var(--gold); display: inline-block; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1.5rem; border: 1px solid rgba(212,175,55,0.4);">
+            Next Upcoming Event</div>
+
+          <div *ngIf="calendarService.loading" class="event-banner__loading" style="font-size: 1.2rem; color: #cbd5e1;">
+            Loading upcoming events...</div>
+
+          <h3 *ngIf="!calendarService.loading && nextEvent" class="event-banner__title display"
+            style="font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 1rem; color: #fff;">{{ nextEvent.summary ||
+            nextEvent.title }}</h3>
+
+          <div *ngIf="!calendarService.loading && nextEvent" class="event-banner__meta"
+            style="color: #cbd5e1; font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="display: flex; align-items: center; gap: 0.5rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+              {{ (nextEvent.start?.dateTime || nextEvent.start?.date || nextEvent.date) | date:'EEEE, MMMM d, yyyy' }}
+            </span>
+          </div>
+
+          <h3 *ngIf="!calendarService.loading && !nextEvent" class="event-banner__title"
+            style="font-size: 1.5rem; color: #cbd5e1;">No upcoming events. Check back soon.</h3>
+        </div>
+        <div class="event-banner__action">
+          <a routerLink="/events" class="btn btn-lg"
+            style="background: var(--gold); color: #fff; border-color: var(--gold); font-weight: 700; box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);">View
+            Full Calendar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════
        FINAL CTA BAND
        ════════════════════════════════════════════════════════ -->
-<section class="cta-band section parallax-section parallax-section--dark"
-  style="background-image: url('assets/inclusive_sports_hero_1780924445396.png'); padding-block: 6rem; background-position: center;">
-  <!-- Dark overlay for readability -->
-  <div style="position:absolute; inset:0; background:rgba(15, 45, 82, 0.85); z-index:0;"></div>
+  <section class="cta-band section parallax-section parallax-section--dark"
+    style="background-image: url('assets/inclusive_sports_hero_1780924445396.png'); padding-block: 6rem; background-position: center;">
+    <!-- Dark overlay for readability -->
+    <div style="position:absolute; inset:0; background:rgba(15, 45, 82, 0.85); z-index:0;"></div>
 
-  <div class="container cta-band__inner reveal" style="position:relative; z-index:1;">
-    <div class="cta-band__content">
-      <h2 class="display cta-band__headline">Ready to Support Inclusive Fitness?</h2>
-      <p class="cta-band__sub">Your donation helps us bring NAFB Sports programs to more communities, schools, and
-        individuals who need it most.</p>
+    <div class="container cta-band__inner reveal" style="position:relative; z-index:1;">
+      <div class="cta-band__content">
+        <h2 class="display cta-band__headline">Ready to Support Inclusive Fitness?</h2>
+        <p class="cta-band__sub">Your donation helps us bring NAFB Sports programs to more communities, schools, and
+          individuals who need it most.</p>
+      </div>
+      <div class="cta-band__actions">
+        <a routerLink="/donate" class="btn btn-gold btn-lg">Donate Today</a>
+        <a routerLink="/contact" class="btn btn-ghost btn-lg">Partner With Us</a>
+      </div>
     </div>
-    <div class="cta-band__actions">
-      <a routerLink="/donate" class="btn btn-gold btn-lg">Donate Today</a>
-      <a routerLink="/contact" class="btn btn-ghost btn-lg">Partner With Us</a>
-    </div>
-  </div>
-</section>
+  </section>
 
 </div>

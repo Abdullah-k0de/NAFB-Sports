@@ -1,0 +1,160 @@
+<main class="scrollable-content main-router-content">
+  <!-- Hero Section -->
+  <section class="page-hero section parallax-section parallax-section--dark"
+    style="background-image: url('assets/donate_hero_bg.png');">
+    <div class="container page-hero__inner">
+      <div class="page-hero__content reveal">
+        <h1 class="page-hero__title display">Building Lifelong <span class="text-gradient">Champions</span> of Health
+        </h1>
+        <p class="page-hero__sub">
+          Your generosity enables us to provide inclusive, pressure-free sports and fitness programs for everyone,
+          regardless of age or ability.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Donate Action Section -->
+  <section class="section">
+    <div class="container">
+      <div class="donate-grid">
+
+        <!-- Impact Info -->
+        <div class="impact-info reveal is-visible reveal-delay-1">
+          <h2 class="section-title">Why Donate?</h2>
+          <div class="rule"></div>
+          <p class="text-sec" style="margin-bottom: 2rem;">
+            NAFB Sports is dedicated to removing the barriers of traditional sports—like extreme competition and high
+            costs. We focus purely on personal health, confidence, and joy.
+          </p>
+
+          <ul class="impact-list">
+            <li>
+              <div class="impact-icon text-gold">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <div>
+                <strong>Secure Facilities</strong>
+                <p>Funding helps us rent gyms, fields, and accessible spaces for our events.</p>
+              </div>
+            </li>
+            <li>
+              <div class="impact-icon text-gold">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+              </div>
+              <div>
+                <strong>Inclusive Equipment</strong>
+                <p>Purchasing specialized sports gear that anyone can safely use and enjoy.</p>
+              </div>
+            </li>
+            <li>
+              <div class="impact-icon text-gold">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <div>
+                <strong>Community Outreach</strong>
+                <p>Subsidizing program costs to keep events completely free or highly affordable.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Donation Widget -->
+        <div class="donate-action reveal is-visible reveal-delay-2" style="display: flex; align-items: stretch;">
+          <div class="donation-widget card card-elevated" style="width: 100%; max-width: 100%;">
+            <!-- Toggle -->
+            <div class="donation-toggle">
+              <button class="toggle-btn" [class.active]="donationType === 'one-time'"
+                (click)="donationType = 'one-time'">
+                <span *ngIf="donationType === 'one-time'">✓</span> One-time
+              </button>
+              <button class="toggle-btn" [class.active]="donationType === 'monthly'" (click)="donationType = 'monthly'">
+                <span *ngIf="donationType === 'monthly'">✓</span> Monthly
+              </button>
+            </div>
+
+            <p class="text-center text-sec" style="margin-block: 1.5rem 1rem;">Choose an amount to donate</p>
+
+            <!-- Presets -->
+            <div *ngIf="donationType === 'one-time'" class="donation-presets" style="animation: slideDown 0.3s ease;">
+              <button *ngFor="let amount of presetAmounts" class="preset-btn" [class.active]="selectedAmount === amount"
+                (click)="selectPreset(amount)">
+                ${{ amount }}
+              </button>
+              <button class="preset-btn" (click)="selectPreset('custom')">
+                Custom
+              </button>
+            </div>
+
+            <div *ngIf="donationType === 'monthly'" class="donation-presets" style="animation: slideDown 0.3s ease;">
+              <button *ngFor="let amount of presetAmounts" class="preset-btn" [class.active]="selectedAmount === amount"
+                (click)="selectPreset(amount)">
+                ${{ amount }}
+              </button>
+              <button class="preset-btn" (click)="selectPreset('custom')">
+                Custom
+              </button>
+            </div>
+
+            <!-- Submit -->
+            <button class="btn btn-primary donate-submit-btn" (click)="handleDonate()" style="margin-top: 1rem;">
+              Donate
+            </button>
+
+            <p class="text-center text-sec"
+              style="font-size: 0.85rem; margin-top: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              Securely processed by Stripe
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section section--alt">
+    <div class="container container--sm">
+      <div class="section-header section-header--center reveal is-visible">
+        <h2 class="section-title">Donation FAQs</h2>
+        <div class="rule rule--center"></div>
+      </div>
+
+      <div class="faq-list reveal is-visible reveal-delay-1">
+        <div class="faq-item" *ngFor="let faq of faqs; let i = index" [class.faq-item--open]="faq.isOpen">
+          <button class="faq-header" (click)="toggleFaq(i)" [attr.aria-expanded]="faq.isOpen">
+            <span class="faq-question">{{ faq.question }}</span>
+            <span class="faq-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-body">
+            <div class="faq-body-inner">
+              <p>{{ faq.answer }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

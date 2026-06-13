@@ -24,7 +24,7 @@
                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                <span style="font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--txt-sec);">Next Event</span>
              </div>
-             <h3 class="event-ticker__title" style="margin-top: 0.75rem; color: var(--navy); font-size: 1.4rem;">{{ upcomingEvents[0].summary }}</h3>
+             <h3 class="event-ticker__title" style="margin-top: 0.75rem; font-size: 1.4rem;">{{ upcomingEvents[0].summary }}</h3>
              <div class="event-ticker__date" style="font-weight: 600;">{{ (upcomingEvents[0].start?.dateTime || upcomingEvents[0].start?.date) | date:'EEEE, MMMM d, yyyy' }}</div>
              <div class="event-ticker__time" *ngIf="upcomingEvents[0].start?.dateTime">{{ upcomingEvents[0].start.dateTime | date:'shortTime' }}</div>
           </ng-container>
@@ -46,7 +46,7 @@
       <!-- Loading Banner -->
       <div class="card flex-center" *ngIf="calendarService.loading" style="padding: 1rem; margin-bottom: 2rem; border-color: var(--gold); background: var(--gold-pale);">
         <div class="spinner" style="width: 20px; height: 20px; border-width: 2px;"></div>
-        <p style="margin-left: 1rem; color: var(--navy); font-weight: 600; margin-bottom: 0;">Syncing with Google Calendar...</p>
+        <p style="margin-left: 1rem; font-weight: 600; margin-bottom: 0;">Syncing with Google Calendar...</p>
       </div>
 
       <div class="calendar-layout">

@@ -25,7 +25,7 @@
   border-top-color: var(--navy);
 }
 
-[data-theme="dark"] .mv-card:nth-child(2) {
+:host-context([data-theme="dark"]) .mv-card:nth-child(2) {
   border-top-color: var(--navy-light);
 }
 
@@ -56,12 +56,12 @@
   color: var(--navy);
 }
 
-[data-theme="dark"] .mv-card__icon--gold {
+:host-context([data-theme="dark"]) .mv-card__icon--gold {
   background: rgba(184, 132, 26, 0.15);
   color: var(--gold-light);
 }
 
-[data-theme="dark"] .mv-card__icon--navy {
+:host-context([data-theme="dark"]) .mv-card__icon--navy {
   background: rgba(15, 45, 82, 0.3);
   color: #93c5fd;
 }
@@ -148,7 +148,7 @@
   }
 }
 
-[data-theme="dark"] .champ-card.reveal.is-visible .champ-card__letter {
+:host-context([data-theme="dark"]) .champ-card.reveal.is-visible .champ-card__letter {
   animation: letterSweepDark 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -240,7 +240,7 @@
   text-transform: uppercase;
 }
 
-[data-theme="dark"] .story__badge-text {
+:host-context([data-theme="dark"]) .story__badge-text {
   color: var(--gold-light);
 }
 
@@ -289,22 +289,22 @@
   color: #475569;
 }
 
-[data-theme="dark"] .impact__icon--gold {
+:host-context([data-theme="dark"]) .impact__icon--gold {
   background: rgba(184, 132, 26, 0.15);
   color: var(--gold-light);
 }
 
-[data-theme="dark"] .impact__icon--navy {
+:host-context([data-theme="dark"]) .impact__icon--navy {
   background: rgba(15, 45, 82, 0.3);
   color: #93c5fd;
 }
 
-[data-theme="dark"] .impact__icon--teal {
+:host-context([data-theme="dark"]) .impact__icon--teal {
   background: rgba(13, 148, 136, 0.15);
   color: #2dd4bf;
 }
 
-[data-theme="dark"] .impact__icon--slate {
+:host-context([data-theme="dark"]) .impact__icon--slate {
   background: rgba(71, 85, 105, 0.2);
   color: #94a3b8;
 }
@@ -312,18 +312,6 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
-  .page-hero__inner {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 3rem;
-  }
-
-  .page-hero__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   .page-hero__frame {
     aspect-ratio: 16/9;
   }

@@ -30,7 +30,7 @@
   margin-bottom: 0.25rem;
 }
 
-[data-theme="dark"] .event-ticker__date {
+:host-context([data-theme="dark"]) .event-ticker__date {
   color: var(--gold-light);
 }
 
@@ -124,7 +124,7 @@
   background: var(--gold-pale);
 }
 
-[data-theme="dark"] .cal-day--today {
+:host-context([data-theme="dark"]) .cal-day--today {
   background: rgba(184, 132, 26, 0.15);
 }
 
@@ -165,7 +165,7 @@
   background: var(--navy);
 }
 
-[data-theme="dark"] .cal-dot {
+:host-context([data-theme="dark"]) .cal-dot {
   background: var(--gold-light);
 }
 
@@ -190,7 +190,7 @@
   border-left: 4px solid var(--navy);
 }
 
-[data-theme="dark"] .event-list-item {
+:host-context([data-theme="dark"]) .event-list-item {
   border-left-color: var(--gold-light);
 }
 
@@ -220,7 +220,7 @@
   line-height: 1;
 }
 
-[data-theme="dark"] .event-list-item__day {
+:host-context([data-theme="dark"]) .event-list-item__day {
   color: var(--txt);
 }
 
@@ -370,11 +370,6 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
-  .page-hero__inner {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-  
   .calendar-layout {
     grid-template-columns: 1fr;
     gap: 4rem;
